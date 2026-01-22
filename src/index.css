@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 187 92% 50%;
+    --primary-foreground: 0 0% 4%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 187 92% 50%;
+    --accent-foreground: 0 0% 4%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 187 92% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom Rheo colors */
+    --rheo-dark: 0 0% 4%;
+    --rheo-darker: 0 0% 2%;
+    --rheo-card: 0 0% 8%;
+    --rheo-cyan: 187 92% 50%;
+    --rheo-cyan-glow: 187 100% 60%;
+    --rheo-blue: 210 100% 50%;
+    --rheo-purple: 270 70% 50%;
+    --rheo-gradient-start: 187 92% 50%;
+    --rheo-gradient-end: 210 100% 50%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(270 50% 30%) 0%, hsl(220 60% 20%) 50%, hsl(200 80% 15%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 10%) 0%, hsl(0 0% 6%) 100%);
+    --gradient-cyan: linear-gradient(90deg, hsl(187 92% 50%) 0%, hsl(210 100% 50%) 100%);
+    --gradient-glow: radial-gradient(ellipse at center, hsl(187 92% 50% / 0.15) 0%, transparent 70%);
+    
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsl(187 92% 50% / 0.3);
+    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.5);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 187 92% 50%;
+    --primary-foreground: 0 0% 4%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 187 92% 50%;
+    --accent-foreground: 0 0% 4%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 187 92% 50%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer components {
+  /* Hero Button Styles */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground px-6 py-3 rounded-full font-medium 
+           transition-all duration-300 hover:shadow-glow hover:scale-105;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent border border-border text-foreground px-6 py-3 rounded-full 
+           font-medium transition-all duration-300 hover:border-primary hover:text-primary;
+  }
+
+  .btn-outline {
+    @apply bg-transparent border border-primary text-primary px-6 py-3 rounded-full 
+           font-medium transition-all duration-300 hover:bg-primary hover:text-primary-foreground;
+  }
+
+  /* Card Styles */
+  .card-dark {
+    @apply bg-card rounded-xl border border-border p-6 transition-all duration-300 
+           hover:border-primary/30 hover:shadow-card;
+  }
+
+  .card-gradient {
+    @apply rounded-xl p-6 transition-all duration-300 hover:scale-[1.02];
+    background: var(--gradient-card);
+  }
+
+  /* Text Styles */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-400;
+  }
+
+  .text-cyan {
+    @apply text-primary;
+  }
+
+  /* Glow Effects */
+  .glow-cyan {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 20px hsl(187 92% 50% / 0.5);
+  }
+
+  /* Service Tag Pills */
+  .tag-pill {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium 
+           bg-secondary border border-border transition-all duration-300 hover:border-primary/50;
+  }
+
+  /* Section Styles */
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Accordion Styles */
+  .accordion-item {
+    @apply border border-border rounded-lg bg-card/50 transition-all duration-300 
+           hover:border-primary/30;
+  }
+
+  /* Navigation Link */
+  .nav-link {
+    @apply text-muted-foreground hover:text-foreground transition-colors duration-300 
+           relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 
+           after:bg-primary after:transition-all after:duration-300 hover:after:w-full;
+  }
+
+  /* Footer Earth Background */
+  .earth-footer {
+    @apply relative overflow-hidden;
+    background: linear-gradient(180deg, hsl(0 0% 4%) 0%, hsl(0 0% 2%) 100%);
+  }
+
+  /* Service Card Image Overlay */
+  .service-image-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent 
+           opacity-0 transition-opacity duration-300 group-hover:opacity-100;
+  }
+
+  /* Testimonial Card */
+  .testimonial-card {
+    @apply bg-card border border-border rounded-xl p-6 transition-all duration-300 
+           hover:border-primary/30;
+  }
+
+  /* FAQ Card Styles */
+  .faq-section {
+    @apply bg-[hsl(187_40%_25%)] rounded-3xl;
+  }
+
+  /* Works Table Row */
+  .works-row {
+    @apply border-b border-border py-6 grid grid-cols-3 gap-4 items-center 
+           transition-all duration-300 hover:bg-card/50;
+  }
+}
+
+.hero-loop-mask {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 28px 0;
+}
+
+.hero-loop-track {
+  display: flex;
+  width: max-content;
+  animation: hero-loop-scroll 40s linear infinite;
+}
+
+@keyframes hero-loop-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@layer utilities {
+  /* Animation Utilities */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  /* Hover Scale */
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-2;
+  }
+
+  /* Custom Scrollbar */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Glass Effect */
+  .glass {
+    @apply backdrop-blur-md bg-background/80;
+  }
+
+  /* Shadow utilities */
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 20px hsl(187 92% 50% / 0.3);
+  }
+  100% {
+    box-shadow: 0 0 40px hsl(187 92% 50% / 0.6);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

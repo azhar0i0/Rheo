@@ -1,0 +1,138 @@
+const WORKFLOW_DATA = [
+    {
+        tag: "Design",
+        step: "01",
+        title: "Crafting Intuitive, Engaging Digital Experiences",
+        points: [
+            { label: "Wireframing & Mockups:", text: "Visualizing layouts for seamless user flow." },
+            { label: "UI/UX Design:", text: "Creating engaging interfaces with intuitive navigation." },
+            { label: "Prototyping:", text: "Testing early concepts before development begins." },
+            { label: "Responsive Design:", text: "Ensuring consistent experience across all devices." },
+        ],
+    },
+    {
+        tag: "Development",
+        step: "02",
+        title: "Turning Designs Into Functional Systems",
+        points: [
+            { label: "Front-End Development:", text: "Crafting visually dynamic and interactive interfaces." },
+            { label: "Framework Selection:", text: "Choosing the best technologies for performance." },
+            { label: "Coding Standards:", text: "Writing clean, maintainable, and scalable code." },
+            { label: "Component Development:", text: "Building reusable UI elements for efficiency." },
+        ],
+    },
+    {
+        tag: "Integration",
+        step: "03",
+        title: "Structuring the Core of Applications",
+        points: [
+            { label: "Page Construction:", text: "Assembling layouts and navigation structure." },
+            { label: "Module Development:", text: "Creating functional units for seamless operations." },
+            { label: "Version Control:", text: "Managing updates and collaborative coding effectively." },
+            { label: "Optimization:", text: "Improving performance for speed and reliability.", text: "Assembling layouts and navigation structure." },
+        ],
+    },
+    {
+        tag: "Backend",
+        step: "04",
+        title: "Powering Systems with Robust Infrastructure",
+        points: [
+            { label: "Client Review:", text: "Structuring data for efficiency and security." },
+            { label: "API Development:", text: "Enabling communication between frontend and backend." },
+            { label: "Server Configuration:", text: "Optimizing servers for stability and speed." },
+            { label: "Security Implementation:", text: "Protecting applications against threats and breaches." },
+        ],
+    },
+    {
+        tag: "Integration",
+        step: "05",
+        title: "Connecting Systems for Seamless Operation",
+        points: [
+            { label: "Third-Party Services:", text: "Linking external tools and APIs." },
+            { label: "Payment Gateways:", text: "Securely enabling financial transactions." },
+            { label: "Authentication Systems:", text: "Managing user accounts and access control." },
+            { label: "Automation Tools:", text: "Streamlining repetitive processes efficiently." },
+        ],
+    },
+    {
+        tag: "Launch",
+        step: "06",
+        title: "Ensuring Flawless Performance and Reliability",
+        points: [
+            { label: "Unit Testing:", text: "Verifying individual components function correctly." },
+            { label: "System Testing:", text: "Checking overall system stability and performance." },
+            { label: "Bug Fixing:", text: "Identifying and resolving errors promptly." },
+            { label: "User Acceptance Testing:", text: "Ensuring product meets client expectations." },
+        ],
+    },
+];
+
+const WorkflowSection = () => {
+    return (
+        <section className="bg-black py-28">
+            <div className="max-w-[1200px] mx-auto">
+
+                {/* Header */}
+                <div className="mb-24">
+                    <div className="flex items-center gap-2 mb-6">
+                        <span className="w-2 h-2 rounded-full bg-[#1fb6ff]" />
+                        <span className="text-[#1fb6ff] text-[14px] tracking-wide">
+                            WorkFlow
+                        </span>
+                    </div>
+
+                    <h2 className="text-white text-[52px] leading-[1.15]" style={{textSizeAdjust:"60px"}}>
+                        Rheo SmartBuild Process
+                    </h2>
+                </div>
+
+                {/* Workflow Rows */}
+                {WORKFLOW_DATA.map((item, index) => (
+                    <div
+                        key={item.step}
+                        className={`border-t border-white/10 pt-20 ${index !== 0 ? "mt-20" : ""}`}
+                    >
+                        <div
+                            className="grid gap-10 mt-20"
+                            style={{ gridTemplateColumns: "160px 1fr" }}
+                        >
+
+                            {/* Left Tag */}
+                            <div>
+                                <span className="inline-flex items-center justify-center px-6 py-2 rounded-full border border-[#1fb6ff]/40 text-[#1fb6ff] text-[14px]">
+                                    {item.tag}
+                                </span>
+                            </div>
+
+                            {/* Right Content */}
+                            <div className="flex gap-10">
+                                <span className="text-[#1fb6ff] text-[28px] font-medium">
+                                    {item.step}
+                                </span>
+
+                                <div>
+                                    <h3 className="text-white text-[22px] font-semibold mb-6">
+                                        {item.title}
+                                    </h3>
+
+                                    <ul className="space-y-3 text-white/60 text-[15px] leading-[1.7]">
+                                        {item.points.map((point, idx) => (
+                                            <li key={idx}>
+                                                <span className="text-white">{point.label}</span>{" "}
+                                                {point.text}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                ))}
+
+            </div>
+        </section>
+    );
+};
+
+export default WorkflowSection;
