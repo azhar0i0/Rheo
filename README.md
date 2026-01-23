@@ -1,4 +1,4 @@
-# Life–Work Connect  
+# RHEO Technology  
 ### A Professional Remote Work Platform  
 Built by **Rheo Technologies**
 
