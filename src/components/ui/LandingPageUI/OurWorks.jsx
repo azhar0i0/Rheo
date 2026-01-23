@@ -1,6 +1,6 @@
 export default function OurWorks() {
   return (
-    <section className="bg-black text-white px-6 lg:px-24 py-32">
+    <section className="bg-black text-white px-6 lg:px-24 py-32 mt-24">
       {/* Header Line */}
       <div className="flex items-center gap-4 mb-24">
         <span className="text-sm text-gray-400">Works</span>
@@ -42,7 +42,7 @@ export default function OurWorks() {
 
 function WorkRow({ title, subtitle, tech, focus }) {
   return (
-    <div className="relative">
+    <div className="relative mt-24">
       {/* Row Content */}
       <div className="flex justify-between lg:flex-row gap-12 py-16">
         {/* Left */}
@@ -68,6 +68,7 @@ function WorkRow({ title, subtitle, tech, focus }) {
 
       {/* FULL-WIDTH DIVIDER (this is what you were missing) */}
       <div className="relative h-px bg-gray-200">
+        <hr />
         {/* Circle */}
         <span
           className="absolute right-0 top-1/2 -translate-y-1/2

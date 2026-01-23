@@ -29,13 +29,13 @@ const FAQAccordion = ({ items }: FAQAccordionProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      className="border border-border/50 rounded-lg bg-card/30 overflow-hidden"
+      className="w-full border border-border/50 rounded-3xl bg-white overflow-hidden"
     >
       <button
         onClick={() => toggleItem(actualIndex)}
-        className="w-full flex items-center justify-between p-5 text-left hover:bg-card/50 transition-colors"
+        className="w-full flex items-center justify-between p-5 text-left transition-colors"
       >
-        <span className="text-foreground font-medium pr-4">
+        <span className="text-black text-xl pr-4">
           {actualIndex + 1}. {item.question}
         </span>
         <span className="flex-shrink-0 text-primary">
@@ -65,7 +65,7 @@ const FAQAccordion = ({ items }: FAQAccordionProps) => {
   );
 
   return (
-    <div className="grid md:grid-cols-2 gap-4">
+    <div className="grid md:grid-cols-2 gap-6 justify-center w-[80%] m-auto">
       <div className="space-y-4">
         {leftItems.map((item, index) => renderItem(item, index, index * 2))}
       </div>

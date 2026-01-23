@@ -38,7 +38,7 @@ export default function AboutServicesSection() {
     const current = tabs[activeTab];
 
     return (
-        <section className="bg-black text-white py-[120px]">
+        <section className="bg-black text-white py-[120px] mt-24">
             <div className="max-w-[1200px] mx-auto px-6">
 
                 {/* Label */}

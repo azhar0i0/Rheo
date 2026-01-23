@@ -60,7 +60,7 @@ export default function DiscoverCards() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[300vh] bg-black text-white px-6 lg:px-24"
+      className="relative min-h-[300vh] bg-black text-white px-6 lg:px-24 mt-24"
     >
       {/* Section Heading */}
       <div className="sticky top-24 z-20 mb-32">

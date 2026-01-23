@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ChevronDown } from 'lucide-react';
-import Header from '@/components/Header';
+import Header from '@/components/ui/LandingPageUI/Header';
 import Footer from '@/components/Footer';
 import FAQAccordion from '@/components/FAQAccordion';
 import contactIllustration from '@/assets/contact-illustration.png';
@@ -70,7 +70,7 @@ const StartProject = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#000000]">
 
       {/* Form Section */}
       <section className="pt-24 pb-20">
@@ -178,7 +178,7 @@ const StartProject = () => {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="btn-primary w-full md:w-auto"
+                  className="btn-primary w-full px-[214px] md:w-auto text-white hover:bg-[#87C296] hover:text-black transition-colors"
                 >
                   Submit Project Query
                 </button>
@@ -211,17 +211,17 @@ const StartProject = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20">
-        <div className="section-container">
-          <div className="faq-section p-8 md:p-12 rounded-3xl">
+      <section className="py-20 pb-48">
+        <div>
+          <div className="faq-section px-8 md:px-12 rounded-3xl py-32">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center mb-12"
+              className="text-center mb-24"
             >
-              <p className="text-sm text-foreground/70 mb-2">[FAQ]</p>
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mb-2">
+              <p className="text-sm text-foreground/70 mb-2">(FAQ)</p>
+              <h2 className="font-display text-4xl md:text-[60px] font-bold mb-2">
                 Your Questions, Answered
               </h2>
               <p className="text-foreground/70">services that Rheo Provide</p>

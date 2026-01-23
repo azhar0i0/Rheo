@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap'); */
 
 @tailwind base;
 @tailwind components;
@@ -174,7 +174,7 @@
   /* Service Tag Pills */
   .tag-pill {
     @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium 
-           bg-secondary border border-border transition-all duration-300 hover:border-primary/50;
+           bg-secondary border border-border transition-all duration-300 hover:bg-primary/80;
   }
 
   /* Section Styles */
@@ -215,7 +215,7 @@
 
   /* FAQ Card Styles */
   .faq-section {
-    @apply bg-[hsl(187_40%_25%)] rounded-3xl;
+    @apply bg-[#457B9D] rounded-3xl;
   }
 
   /* Works Table Row */

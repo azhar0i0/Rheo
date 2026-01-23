@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, ChevronDown, Copy } from 'lucide-react';
-import Header from '@/components/Header';
+import Header from '@/components/ui/LandingPageUI/Header';
 import Footer from '@/components/Footer';
 import TestimonialCard from '@/components/TestimonialCard';
 import webDevTeam from '@/assets/web-dev-team.jpg';
@@ -162,8 +162,7 @@ const Services = () => {
   const currentContent = tabContent[activeTab as keyof typeof tabContent];
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <div className="min-h-screen bg-[#000000]">
 
       {/* Hero Section */}
       <section className="pt-24 pb-12">
@@ -202,7 +201,7 @@ const Services = () => {
                 perform across all devices.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Link to="/start-project" className="btn-primary flex items-center justify-center gap-2">
+                <Link to="/start-project" className="btn-primary flex items-center justify-center gap-2 border-2 border-black">
                   Start Your Project
                   <ArrowRight className="w-4 h-4" />
                 </Link>

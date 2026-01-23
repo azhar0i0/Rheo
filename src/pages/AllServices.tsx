@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import Header from '@/components/Header';
+import Header from '@/components/ui/LandingPageUI/Header';
 import Footer from '@/components/Footer';
 import PageHeader from '@/components/PageHeader';
 import ServiceCard from '@/components/ServiceCard';
@@ -58,7 +58,7 @@ const AllServices = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#000000]">
 
       <PageHeader 
         title="Procedures"

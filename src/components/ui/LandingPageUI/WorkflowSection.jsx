@@ -81,7 +81,7 @@ const WorkflowSection = () => {
                         </span>
                     </div>
 
-                    <h2 className="text-white text-[52px] leading-[1.15]" style={{textSizeAdjust:"60px"}}>
+                    <h2 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-[100px] leading-[1.15]">
                         Rheo SmartBuild Process
                     </h2>
                 </div>
@@ -106,7 +106,7 @@ const WorkflowSection = () => {
 
                             {/* Right Content */}
                             <div className="flex gap-10">
-                                <span className="text-[#1fb6ff] text-[28px] font-medium">
+                                <span className="text-[#1fb6ff] text-3xl font-medium">
                                     {item.step}
                                 </span>
 

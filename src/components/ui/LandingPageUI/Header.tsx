@@ -4,15 +4,18 @@ import logo from "@/assets/rheo-logo.png";
 const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      <div className="h-[72px] w-full bg-black/80 backdrop-blur-md border-b border-white/10">
+      <div className="relative h-[72px] w-full bg-black/80 backdrop-blur-md">
+
+        {/* 90% Bottom Border */}
+        <div className="absolute bottom-0 left-1/2 h-px w-[90%] -translate-x-1/2 bg-white/10" />
         <div className="max-w-7xl mx-auto h-full px-6 flex items-center justify-between">
-          
+
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img
               src={logo}
               alt="Rheo"
-              className="h-7 w-auto"
+              className="w-24"
             />
           </Link>
 

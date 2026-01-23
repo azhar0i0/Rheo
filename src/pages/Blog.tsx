@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import Header from '@/components/Header';
+import Header from '@/components/ui/LandingPageUI/Header';
 import Footer from '@/components/Footer';
 import PageHeader from '@/components/PageHeader';
 
@@ -67,7 +67,7 @@ const Blog = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#000000]">
 
       <PageHeader 
         title="BLog"
@@ -121,7 +121,7 @@ const Blog = () => {
             Works
           </motion.p>
 
-          <div className="space-y-0">
+          <div className="space-y-12">
             {works.map((work, index) => (
               <motion.div
                 key={index}
@@ -132,10 +132,10 @@ const Blog = () => {
                 className="works-row"
               >
                 <div>
-                  <h4 className="font-display font-semibold text-foreground">{work.name}</h4>
+                  <h4 className="font-display text-lg font-semibold text-foreground">{work.name}</h4>
                 </div>
                 <div>
-                  <p className="text-foreground font-medium">
+                  <p className="text-foreground text-lg font-medium">
                     {work.attributes.join(' · ')}
                   </p>
                   <p className="text-sm text-muted-foreground">

@@ -23,7 +23,7 @@ export default function BlogSection() {
   ];
 
   return (
-    <section className="bg-black text-white py-28">
+    <section className="bg-black text-white py-28 mt-24">
       <div className="max-w-[1200px] mx-auto px-6">
 
         {/* Label */}
