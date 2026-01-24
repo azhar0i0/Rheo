@@ -19,7 +19,7 @@ const TestimonialCard = ({ name, quote, rating = 5 }: TestimonialCardProps) => {
       <h4 className="font-display font-semibold text-foreground mb-3">
         {name}
       </h4>
-      <p className="text-muted-foreground text-sm leading-relaxed flex-1 mb-6">
+      <p className="text-muted-foreground text-sm leading-relaxed flex-1 mb-48">
         "{quote}"
       </p>
       <div className="flex gap-1">

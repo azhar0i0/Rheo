@@ -314,7 +314,7 @@ const Services = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20">
+      <section className="py-20 mt-24">
         <div className="section-container">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -322,7 +322,7 @@ const Services = () => {
             viewport={{ once: true }}
             className="font-display text-3xl md:text-4xl font-bold text-center mb-12"
           >
-            About Our <span className="text-primary">Service</span>
+            About Our Service
           </motion.h2>
 
           <div className="grid md:grid-cols-3 gap-6">
