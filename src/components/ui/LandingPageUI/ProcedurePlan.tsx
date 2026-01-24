@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-// Image (same image used for all states as requested)
-import heroAbstract from '@/assets/hero-abstract.jpg';
+// Images
+import heroAbstract from '@/assets/contact-illustration.png';
 
 const ProcedurePlan = () => {
   const [activeStep, setActiveStep] = useState(0);
@@ -39,7 +39,7 @@ const ProcedurePlan = () => {
           </div>
 
           <h2 className="text-white text-[32px] md:text-[36px] font-light leading-[1.2]">
-            Rheo plannings <span className="font-medium">Building</span>, to deployment
+            Rheo plannings Building, <span className="text-gray-400">to deployment</span>
           </h2>
         </div>
 

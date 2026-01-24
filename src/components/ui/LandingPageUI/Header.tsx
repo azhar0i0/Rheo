@@ -21,16 +21,16 @@ const Header = () => {
 
           {/* Right Navigation */}
           <div className="flex items-center gap-10">
-            <nav className="flex items-center gap-8">
+            <nav className="flex items-center gap-3">
               <Link
                 to="/all-services"
-                className="text-sm font-medium text-white/90 hover:text-white transition"
+                className="text-sm font-medium text-white hover:bg-[#2C2C2C] px-4 rounded-sm py-3 transition-all"
               >
                 Services
               </Link>
               <Link
                 to="/blog"
-                className="text-sm font-medium text-white/90 hover:text-white transition"
+                className="text-sm font-medium text-white/90 hover:bg-[#2C2C2C] px-4 rounded-sm py-3 transition-all"
               >
                 Blog
               </Link>
@@ -39,9 +39,15 @@ const Header = () => {
             {/* CTA Button */}
             <Link
               to="/start-project"
-              className="px-5 py-2 rounded-lg bg-[#00A3D9] text-sm font-semibold text-white hover:bg-[#0092c4] transition"
+              className="group relative overflow-hidden h-12 min-w-[10rem] px-5 rounded-md bg-[#0096C7] text-sm text-white hover:bg-[#0092c4] transition flex items-center justify-center"
             >
-              Create Project
+              <span className="absolute transition-transform duration-300 group-hover:-translate-y-12">
+                Create Project
+              </span>
+
+              <span className="absolute translate-y-12 transition-transform duration-300 group-hover:translate-y-0">
+                Create Project
+              </span>
             </Link>
           </div>
         </div>

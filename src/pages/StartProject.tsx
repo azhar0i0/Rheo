@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ChevronDown } from 'lucide-react';
-import Header from '@/components/ui/LandingPageUI/Header';
 import Footer from '@/components/Footer';
 import FAQAccordion from '@/components/FAQAccordion';
 import contactIllustration from '@/assets/contact-illustration.png';
@@ -90,9 +89,9 @@ const StartProject = () => {
                 <ArrowLeft className="w-5 h-5" />
               </Link>
 
-              <div className="mb-8">
-                <p className="text-primary text-sm mb-2">Rheo</p>
-                <h1 className="font-display text-4xl md:text-5xl font-bold">
+              <div className="mb-16">
+                <p className="text-primary text-sm">Rheo</p>
+                <h1 className="font-display text-[67px] font-bold">
                   <span className="text-foreground">Start your</span>{' '}
                   <span className="text-primary">Project</span>
                 </h1>
@@ -178,31 +177,27 @@ const StartProject = () => {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="btn-primary w-full px-[214px] md:w-auto text-white hover:bg-[#87C296] hover:text-black transition-colors"
+                  className="btn-primary w-full px-[214px] md:w-auto text-white hover:bg-[#87C296] hover:text-black transition-all"
                 >
                   Submit Project Query
                 </button>
               </form>
             </motion.div>
 
-            {/* Illustration */}
+            {/* Contact Image */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
-              className="hidden md:flex items-center justify-center"
+              className="hidden md:flex justify-end mt-24"
             >
               <div className="relative">
-                <div className="w-64 h-64 rounded-full bg-gradient-to-br from-primary/20 to-blue-500/20 flex items-center justify-center">
+                <div>
                   <img 
                     src={contactIllustration}
                     alt="Contact illustration"
-                    className="w-48 h-48 object-contain"
+                    className="w-120 h-120 object-contain"
                   />
-                </div>
-                {/* Online badge */}
-                <div className="absolute top-4 right-4 bg-primary/20 text-primary text-xs px-2 py-1 rounded-full">
-                  ONLINE
                 </div>
               </div>
             </motion.div>

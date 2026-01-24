@@ -145,13 +145,22 @@ const Index = () => {
               </p>
 
               {/* Button */}
-              <Link
-                to="/all-services"
-                className="inline-flex items-center gap-3 bg-[#0096C7] hover:bg-[#0289b6] transition-colors text-white font-medium text-[14px] px-16 py-3 rounded-lg"
-              >
-                All Services
-                <ArrowRight size={16} />
-              </Link>
+              <motion.div>
+                <Link
+                  to="/all-services"
+                  className="group flex items-center justify-between w-full bg-[#0096C7] hover:bg-[#0289b6] transition-colors text-white font-medium text-[14px] px-4 py-3 rounded-lg"
+                >
+                  {/* Text flush left */}
+                  <span className="flex-1 text-center">All Services</span>
+
+                  {/* Arrow flush right + rotate on hover */}
+                  <ArrowRight
+                    size={16}
+                    className="transition-transform duration-300 group-hover:rotate-180"
+                  />
+                </Link>
+              </motion.div>
+
             </motion.div>
 
             {/* RIGHT GRID */}

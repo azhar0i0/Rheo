@@ -50,51 +50,47 @@ const cards = [
 ];
 
 export default function DiscoverCards() {
-  const containerRef = useRef(null);
+  const wrapperRef = useRef(null);
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start start', 'end end'],
-  });
+  const { scrollY } = useScroll();
 
   return (
-    <section
-      ref={containerRef}
-      className="relative min-h-[300vh] bg-black text-white px-6 lg:px-24 mt-24"
-    >
-      {/* Section Heading */}
-      <div className="sticky top-24 z-20 mb-32">
+    <section className="relative bg-black text-white px-6 lg:px-24 mt-24">
+      {/* Heading */}
+      <div className="sticky top-24 z-50 mb-24">
         <h2 className="text-center text-4xl lg:text-6xl font-semibold text-[#d9f3ff]">
           Discover Our Top Services.
         </h2>
       </div>
 
-      {/* Cards Container */}
-      <div className="relative h-[200vh]">
+      {/* Cards Wrapper */}
+      <div ref={wrapperRef} className="relative">
         {cards.map((card, index) => {
-          const start = index * 0.33;
-          const end = start + 0.33;
+          // Each card gets 600px scroll distance
+          const start = index * 600;
+          const end = start + 600;
 
-          const scale = useTransform(scrollYProgress, [start, end], [0.88, 1]);
-          const opacity = useTransform(scrollYProgress, [start, end], [0.35, 1]);
-          const x = useTransform(scrollYProgress, [start, end], [90, 0]);
+          const y = useTransform(scrollY, [start, end], [300, 0]);
 
           return (
             <motion.div
               key={card.id}
-              style={{ scale, opacity, x }}
+              style={{
+                y,
+                zIndex: index + 1,
+              }}
               className="sticky top-40 mx-auto mb-32 max-w-6xl rounded-3xl overflow-hidden
                          bg-black shadow-[0_40px_120px_rgba(0,0,0,0.85)]"
             >
               <div className="relative grid grid-cols-1 lg:grid-cols-3 gap-12 p-10 lg:p-16">
-                {/* Background Image */}
+                {/* Background */}
                 <img
                   src={discoverBg}
                   alt=""
                   className="absolute inset-0 w-full h-full object-cover opacity-30"
                 />
 
-                {/* Left Content */}
+                {/* Left */}
                 <div className="relative z-10 flex flex-col justify-between">
                   <span className="text-sm text-red-400">
                     {card.id} / 03
@@ -105,7 +101,7 @@ export default function DiscoverCards() {
                   </h3>
                 </div>
 
-                {/* Center Image */}
+                {/* Center */}
                 <div className="relative z-10 flex justify-center">
                   <img
                     src={phoneMockup}
@@ -114,11 +110,9 @@ export default function DiscoverCards() {
                   />
                 </div>
 
-                {/* Right Content */}
+                {/* Right */}
                 <div className="relative z-10">
-                  <p className="text-sm text-gray-400">
-                    {card.subtitle}
-                  </p>
+                  <p className="text-sm text-gray-400">{card.subtitle}</p>
 
                   <h4 className="mt-2 text-2xl font-semibold">
                     {card.heading}
@@ -135,10 +129,7 @@ export default function DiscoverCards() {
 
                     <ul className="space-y-2">
                       {card.properties.map((item) => (
-                        <li
-                          key={item}
-                          className="text-sm text-white"
-                        >
+                        <li key={item} className="text-sm text-white">
                           {item}
                         </li>
                       ))}
@@ -149,6 +140,9 @@ export default function DiscoverCards() {
             </motion.div>
           );
         })}
+
+        {/* Spacer to create exact scroll area */}
+        <div style={{ height: `${cards.length * 600}px` }} />
       </div>
     </section>
   );
