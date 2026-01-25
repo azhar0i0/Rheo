@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import blogAi from '@/assets/blog-ai.jpg';
 import blogRobot from '@/assets/blog-robot.jpg';
 import blogNetwork from '@/assets/blog-network.jpg';
@@ -24,7 +25,12 @@ export default function BlogSection() {
 
   return (
     <section className="bg-black text-white py-28 mt-24">
-      <div className="max-w-[1200px] mx-auto px-6">
+      <motion.div
+      initial={{ opacity: 0, x: 60 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+      viewport={{ once: true }}
+       className="max-w-[1200px] mx-auto px-6">
 
         {/* Label */}
         <div className="flex items-center gap-2">
@@ -69,7 +75,7 @@ export default function BlogSection() {
           ))}
         </div>
 
-      </div>
+      </motion.div>
     </section>
   );
 }

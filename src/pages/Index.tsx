@@ -310,14 +310,23 @@ const Index = () => {
               {/* Hide left border */}
               <div className="absolute left-0 top-0 h-full w-6 bg-black" />
 
-              <h3 className="text-white text-[26px] font-semibold mb-4">
+              <motion.h3
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          viewport={{ once: true }} className="text-white text-[26px] font-semibold mb-4">
                 Join Us
-              </h3>
+              </motion.h3>
 
-              <p className="text-white/70 text-[15px] leading-[1.7] max-w-[420px] mb-8">
+              <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          viewport={{ once: true }}
+               className="text-white/70 text-[15px] leading-[1.7] max-w-[420px] mb-8">
                 Be part of a team that builds meaningful software with
                 clarity, creativity, and purpose.
-              </p>
+              </motion.p>
 
               <div className="relative">
                 <input

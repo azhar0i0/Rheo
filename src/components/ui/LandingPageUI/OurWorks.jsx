@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 export default function OurWorks() {
   return (
     <section className="bg-black text-white px-6 lg:px-24 py-32 mt-24">
@@ -42,17 +44,22 @@ export default function OurWorks() {
 
 function WorkRow({ title, subtitle, tech, focus }) {
   return (
-    <div className="relative mt-24">
+    <motion.div
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.3 }}
+      viewport={{ once: true }}
+      className="relative mt-24">
       {/* Row Content */}
       <div className="flex justify-between lg:flex-row gap-12 py-16">
         {/* Left */}
-        <h3 className="text-xl lg:text-2xl font-semibold">
+        <h3 className="text-xl lg:text-2xl font-bold">
           {title}
         </h3>
 
         {/* Middle */}
         <div>
-          <p className="text-lg font-medium">
+          <p className="text-lg font-semibold">
             {subtitle}
           </p>
           <p className="mt-2 text-sm text-gray-400">
@@ -67,7 +74,7 @@ function WorkRow({ title, subtitle, tech, focus }) {
       </div>
 
       {/* FULL-WIDTH DIVIDER (this is what you were missing) */}
-      <div className="relative h-px bg-gray-200">
+      <div className="relative h-px bg-gray-200 mt-20">
         <hr />
         {/* Circle */}
         <span
@@ -75,6 +82,6 @@ function WorkRow({ title, subtitle, tech, focus }) {
                      w-5 h-5 rounded-full border border-white/30 bg-black"
         />
       </div>
-    </div>
+    </motion.div>
   );
 }

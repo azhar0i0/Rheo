@@ -15,57 +15,99 @@ const Footer = () => {
     hour12: false,
   });
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: 'easeOut' },
+    },
+  };
+
   return (
     <footer className="relative mt-20">
       {/* Earth Background */}
-      <div className="absolute inset-0 overflow-hidden">
-        <img
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2, ease: 'easeOut' }}
+        className="absolute inset-0 overflow-hidden"
+      >
+        <motion.img
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
           src={earthFooter}
           alt="Earth from space"
           className="w-full h-full object-cover"
         />
-        {/* <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" /> */}
-      </div>
+      </motion.div>
 
-      <div className="relative z-10 section-container pt-40 pb-8">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="relative z-10 section-container pt-40 pb-8"
+      >
         {/* Navigation Links */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-          <div>
+        <motion.div
+          variants={containerVariants}
+          className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16"
+        >
+          <motion.div variants={itemVariants}>
             <h4 className="text-muted-foreground mb-4">Navigation</h4>
             <nav className="flex flex-col gap-3">
-              <Link to="/" className="text-foreground hover:text-primary transition-colors text-2xl font-bold">
-                About
-              </Link>
-              <Link to="/all-services" className="text-foreground hover:text-primary transition-colors text-2xl font-bold">
-                Works
-              </Link>
-              <Link to="/services" className="text-foreground hover:text-primary transition-colors text-2xl font-bold">
-                Services
-              </Link>
-              <Link to="/blog" className="text-foreground hover:text-primary transition-colors text-2xl font-bold">
-                Blog
-              </Link>
+              {['/', '/all-services', '/services', '/blog'].map((path, i) => (
+                <motion.div
+                  key={i}
+                  whileHover={{ y: -2 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                >
+                  <Link
+                    to={path}
+                    className="text-foreground hover:text-primary transition-colors text-2xl font-bold"
+                  >
+                    {['About', 'Works', 'Services', 'Blog'][i]}
+                  </Link>
+                </motion.div>
+              ))}
             </nav>
-          </div>
+          </motion.div>
 
-          <div>
+          <motion.div variants={itemVariants}>
             <h4 className="text-muted-foreground mb-4">Social</h4>
             <nav className="flex flex-col gap-3">
-              <a href="#" className="text-foreground text-2xl font-bold hover:text-primary transition-colors">
-                Twitter(X)
-              </a>
-              <a href="#" className="text-foreground hover:text-primary transition-colors text-2xl font-bold">
-                LinkedIn
-              </a>
-              <a href="#" className="text-foreground hover:text-primary transition-colors text-2xl font-bold">
-                Dribbble
-              </a>
+              {['Twitter(X)', 'LinkedIn', 'Dribbble'].map((item, i) => (
+                <motion.a
+                  key={i}
+                  href="#"
+                  whileHover={{ y: -2 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                  className="text-foreground hover:text-primary transition-colors text-2xl font-bold"
+                >
+                  {item}
+                </motion.a>
+              ))}
             </nav>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-border/30">
+        <motion.div
+          variants={itemVariants}
+          className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-border/30"
+        >
           <p className="text-sm text-muted-foreground">
             © 2025 Rheo. All rights reserved.
           </p>
@@ -83,8 +125,8 @@ const Footer = () => {
             Back to top
             <ArrowUp className="w-4 h-4" />
           </motion.button>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </footer>
   );
 };

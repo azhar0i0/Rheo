@@ -39,15 +39,25 @@ export default function AboutServicesSection() {
 
     return (
         <section className="bg-black text-white py-[120px] mt-24">
-            <div className="max-w-[1200px] mx-auto px-6">
+            <motion.div
+                initial={{ opacity: 0, x: -60 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+                viewport={{ once: true }}
+                className="max-w-[1200px] mx-auto px-6">
 
                 {/* Label */}
-                <div className="flex items-center gap-2">
+                <motion.div
+                    initial={{ opacity: 0, x: -60 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.7, ease: "easeOut" }}
+                    viewport={{ once: true }}
+                    className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-[#8B5CF6]" />
                     <span className="text-[14px] text-[#A78BFA] tracking-wide">
                         About Our Services ( How we do Everything )
                     </span>
-                </div>
+                </motion.div>
 
                 {/* Heading */}
                 <h2 className="max-w-[820px] text-[20px] leading-[1.15] font-semibold text-[#CFFAFE] mb-10">
@@ -66,8 +76,8 @@ export default function AboutServicesSection() {
                                 key={key}
                                 onClick={() => setActiveTab(key as 'pipeline' | 'codegen')}
                                 className={`relative pb-4 transition-colors ${activeTab === key
-                                        ? 'text-white'
-                                        : 'text-[#666] hover:text-white'
+                                    ? 'text-white'
+                                    : 'text-[#666] hover:text-white'
                                     }`}
                             >
                                 {tab.label}
@@ -116,7 +126,7 @@ export default function AboutServicesSection() {
                     </div>
 
                 </div>
-            </div>
+            </motion.div>
         </section>
     );
 }

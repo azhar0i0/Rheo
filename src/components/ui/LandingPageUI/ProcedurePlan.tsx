@@ -27,7 +27,12 @@ const ProcedurePlan = () => {
 
   return (
     <section className="py-24 bg-black">
-      <div className="max-w-[1200px] mx-auto px-6">
+      <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          viewport={{ once: true }} 
+          className="max-w-[1200px] mx-auto px-6">
 
         {/* Top label + heading */}
         <div className="mb-16">
@@ -103,7 +108,7 @@ const ProcedurePlan = () => {
 
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 const WORKFLOW_DATA = [
     {
         tag: "Design",
@@ -70,7 +72,12 @@ const WORKFLOW_DATA = [
 const WorkflowSection = () => {
     return (
         <section className="bg-black py-28">
-            <div className="max-w-[1200px] mx-auto">
+            <motion.div
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true }}
+                className="max-w-[1200px] mx-auto">
 
                 {/* Header */}
                 <div className="mb-24">
@@ -88,7 +95,11 @@ const WorkflowSection = () => {
 
                 {/* Workflow Rows */}
                 {WORKFLOW_DATA.map((item, index) => (
-                    <div
+                    <motion.div
+                        initial={{ opacity: 0, y: 60 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.3 }}
+                        viewport={{ once: true }}
                         key={item.step}
                         className={`border-t border-white/10 pt-20 ${index !== 0 ? "mt-20" : ""}`}
                     >
@@ -127,10 +138,10 @@ const WorkflowSection = () => {
                             </div>
 
                         </div>
-                    </div>
+                    </motion.div>
                 ))}
 
-            </div>
+            </motion.div>
         </section>
     );
 };
