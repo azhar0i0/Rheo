@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, ChevronDown } from 'lucide-react';
 import Footer from '@/components/Footer';
 import FAQAccordion from '@/components/FAQAccordion';
@@ -20,6 +20,7 @@ const StartProject = () => {
   });
 
   const [isSelectOpen, setIsSelectOpen] = useState(false);
+  const navigate = useNavigate();
 
   const services = [
     'Web Development',
@@ -82,12 +83,13 @@ const StartProject = () => {
               variants={fadeInUp}
             >
               {/* Back Button */}
-              <Link 
-                to="/"
+              <button
+                type="button"
+                onClick={() => navigate(-1)}
                 className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"
               >
                 <ArrowLeft className="w-5 h-5" />
-              </Link>
+              </button>
 
               <div className="mb-16">
                 <p className="text-primary text-sm">Rheo</p>
@@ -137,7 +139,7 @@ const StartProject = () => {
                     </span>
                     <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform ${isSelectOpen ? 'rotate-180' : ''}`} />
                   </button>
-                  
+
                   {isSelectOpen && (
                     <motion.div
                       initial={{ opacity: 0, y: -10 }}
@@ -193,7 +195,7 @@ const StartProject = () => {
             >
               <div className="relative">
                 <div>
-                  <img 
+                  <img
                     src={contactIllustration}
                     alt="Contact illustration"
                     className="w-120 h-120 object-contain"

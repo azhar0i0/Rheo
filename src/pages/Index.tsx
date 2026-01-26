@@ -1,21 +1,18 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
-  ArrowRight, ChevronDown, ArrowUp,
+  ArrowRight,
   LayoutGrid,
   Smartphone,
   Server,
   Code2,
   Pencil,
   Plug,
-  Disc,
-  Workflow,
 } from 'lucide-react';
 import { useState } from 'react';
 
 // Import images
-import heroAbstract from '@/assets/hero-abstract.jpg';
-import discoverBg from '@/assets/discover-bg.jpg';
+import heroAbstract from '@/assets/hero-abstract.avif';
 import webDevTeam from '@/assets/web-dev-team.jpg';
 import mobileDev from '@/assets/mobile-dev.jpg';
 import uiUxDesign from '@/assets/ui-ux-design.jpg';
@@ -33,6 +30,30 @@ import OurWorks from '@/components/ui/LandingPageUI/OurWorks';
 import AboutServicesSection from '@/components/ui/LandingPageUI/AboutServicesSection';
 import WorkflowSection from '@/components/ui/LandingPageUI/WorkflowSection';
 import Footer from '@/components/Footer';
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      ease: 'easeOut',
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: 'easeOut',
+    },
+  },
+};
 
 const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -113,17 +134,22 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* ========== HERO LOOP ========== */}
       <HeroLoop />
 
       {/* ========== SERVICES SECTION ========== */}
       <section className="py-24 bg-black">
         <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-16 items-start">
+          <motion.div
+              initial={{ opacity: 0, y: 70 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-16 items-start">
 
             {/* LEFT CONTENT */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
               {/* Label */}
@@ -173,7 +199,7 @@ const Index = () => {
             >
               {/* Card 1 */}
               <Link
-                to="/services"
+                to="/web-services"
                 className="block">
                 <div className="flex flex-col justify-between bg-gradient-to-b from-[#0b0b0b] to-[#050505] border border-[#1f1f1f] rounded-xl p-6 min-h-[200px] hover:border-[#22d3ee]/30 transition-colors">
                   <div className="text-[#06b6d4] mb-6">
@@ -192,7 +218,7 @@ const Index = () => {
 
               {/* Card 2 */}
               <Link
-                to="/services"
+                to="/app-services"
                 className="block">
                 <div className="flex flex-col justify-between bg-gradient-to-b from-[#0b0b0b] to-[#050505] border border-[#1f1f1f] rounded-2xl p-6 min-h-[200px] hover:border-[#22d3ee]/30 transition-colors">
                   <div className="text-[#06b6d4] mb-6">
@@ -210,7 +236,7 @@ const Index = () => {
               </Link>
 
               {/* Card 3 */}
-              <Link to="/services" className="block">
+              <Link to="/backend-services" className="block">
                 <div className="flex flex-col justify-between bg-gradient-to-b from-[#0b0b0b] to-[#050505] border border-[#1f1f1f] rounded-2xl p-6 min-h-[200px] hover:border-[#22d3ee]/30 transition-colors">
                   <div className="text-[#06b6d4] mb-6">
                     <Server size={22} />
@@ -227,7 +253,7 @@ const Index = () => {
               </Link>
 
               {/* Card 4 */}
-              <Link to="/services" className="block">
+              <Link to="/saas-services" className="block">
                 <div className="flex flex-col justify-between bg-gradient-to-b from-[#0b0b0b] to-[#050505] border border-[#1f1f1f] rounded-2xl p-6 min-h-[200px] hover:border-[#22d3ee]/30 transition-colors">
                   <div className="text-[#06b6d4] mb-6">
                     <Code2 size={22} />
@@ -244,7 +270,7 @@ const Index = () => {
               </Link>
 
               {/* Card 5 */}
-              <Link to="/services" className="block">
+              <Link to="/custom-software-services" className="block">
                 <div className="flex flex-col justify-between bg-gradient-to-b from-[#0b0b0b] to-[#050505] border border-[#1f1f1f] rounded-2xl p-6 min-h-[200px] hover:border-[#22d3ee]/30 transition-colors">
                   <div className="text-[#06b6d4] mb-6">
                     <Pencil size={22} />
@@ -261,7 +287,7 @@ const Index = () => {
               </Link>
 
               {/* Card 6 */}
-              <Link to="/services" className="block">
+              <Link to="/api-integration-services" className="block">
                 <div className="flex flex-col justify-between bg-gradient-to-b from-[#0b0b0b] to-[#050505] border border-[#1f1f1f] rounded-2xl p-6 min-h-[200px] hover:border-[#22d3ee]/30 transition-colors">
                   <div className="text-[#06b6d4] mb-6">
                     <Plug size={22} />
@@ -278,7 +304,7 @@ const Index = () => {
               </Link>
             </motion.div>
 
-          </div>
+          </motion.div>
         </div>
       </section>
 
