@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 export default function OurWorks() {
   return (
-    <section className="bg-black text-white px-6 lg:px-24 py-32 mt-24">
+    <section className="bg-black text-white px-6 lg:px-24 py-32 mt-24 max-w-4xl mx-auto">
       {/* Header Line */}
       <div className="flex items-center gap-4 mb-24">
         <span className="text-sm text-gray-400">⬤ ‎  Works </span>
