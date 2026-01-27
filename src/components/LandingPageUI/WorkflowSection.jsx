@@ -88,7 +88,7 @@ const WorkflowSection = () => {
                     </div>
 
                     <h2 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-[100px] leading-[1.15]">
-                        Rheo SmartBuild Process
+                        Rheo Technologies SmartBuild Process
                     </h2>
                 </div>
 

@@ -35,8 +35,7 @@ export default function BlogSection() {
         {/* Label */}
         <div className="flex items-center gap-2">
           <div className="flex items-center gap-2 mb-4">
-            <span className="w-2 h-2 rounded-full bg-[#8b2fc9]" />
-            <span className="text-[#8b2fc9] text-[14px]">Blog</span>
+            <span className="text-[#8b2fc9] text-[14px]">⬤ ‎ Blog</span>
           </div>
         </div>
 

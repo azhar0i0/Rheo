@@ -53,9 +53,8 @@ export default function AboutServicesSection() {
                     transition={{ duration: 0.7, ease: "easeOut" }}
                     viewport={{ once: true }}
                     className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#8b2fc9]" />
                     <span className="text-[14px] text-[#A78BFA] tracking-wide">
-                        About Our Services ( How we do Everything )
+                        ⬤ ‎ About Our Services ( How we do Everything )
                     </span>
                 </motion.div>
 

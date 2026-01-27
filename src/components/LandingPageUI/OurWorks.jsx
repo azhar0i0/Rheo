@@ -5,8 +5,8 @@ export default function OurWorks() {
     <section className="bg-black text-white px-6 lg:px-24 py-32 mt-24">
       {/* Header Line */}
       <div className="flex items-center gap-4 mb-24">
-        <span className="text-sm text-gray-400">⬤ ‎ Works </span>
-        <div className="flex-1 h-px bg-white" />
+        <span className="text-sm text-gray-400">⬤ ‎  Works </span>
+        <hr className="flex-1 h-px" />
       </div>
 
       <div className="relative">

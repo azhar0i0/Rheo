@@ -109,7 +109,7 @@ const Footer = () => {
           className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-border/30"
         >
           <p className="text-sm text-muted-foreground">
-            © 2025 Rheo. All rights reserved.
+            © 2025 Rheo Technologies. All rights reserved.
           </p>
 
           <p className="text-sm text-muted-foreground">

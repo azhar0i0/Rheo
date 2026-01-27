@@ -33,19 +33,19 @@ const StartProject = () => {
 
   const faqItems = [
     {
-      question: 'What kind of services can I get from Rheo?',
-      answer: 'Rheo offers comprehensive digital services including web development, mobile apps, UI/UX design, cloud solutions, DevOps automation, and full-stack development. We handle everything from MVPs to enterprise-level applications.'
+      question: 'What kind of services can I get from Rheo Technologies?',
+      answer: 'Rheo Technologies offers comprehensive digital services including web development, mobile apps, UI/UX design, cloud solutions, DevOps automation, and full-stack development. We handle everything from MVPs to enterprise-level applications.'
     },
     {
-      question: 'Can Rheo handle my project from start to finish?',
-      answer: 'Yes, Rheo manages the entire process from planning and design to development, deployment, and ongoing support.'
+      question: 'Can Rheo Technologies handle my project from start to finish?',
+      answer: 'Yes, Rheo Technologies manages the entire process from planning and design to development, deployment, and ongoing support.'
     },
     {
       question: 'Do you build both web and mobile applications?',
       answer: 'Absolutely! We specialize in both web and mobile development, including cross-platform solutions using React Native and Flutter.'
     },
     {
-      question: 'Can Rheo work with existing software or redesign my product?',
+      question: 'Can Rheo Technologies work with existing software or redesign my product?',
       answer: 'Yes, we can integrate with your existing software, perform redesigns, or build entirely new features on top of your current systems.'
     },
     {
@@ -107,7 +107,7 @@ const StartProject = () => {
               </button>
 
               <div className="mb-16">
-                <p className="text-primary text-sm">Rheo</p>
+                <p className="text-primary text-sm">Rheo Technologies</p>
                 <h1 className="font-display text-[67px] font-bold">
                   <span className="text-foreground">Start your</span>{' '}
                   <span className="text-primary">Project</span>
@@ -236,7 +236,7 @@ const StartProject = () => {
               <h2 className="font-display text-4xl md:text-[60px] font-bold mb-2">
                 Your Questions, Answered
               </h2>
-              <p className="text-foreground/70">services that Rheo Provide</p>
+              <p className="text-foreground/70">services that Rheo Technologies Provide</p>
             </motion.div>
 
             <FAQAccordion items={faqItems} />
