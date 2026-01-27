@@ -51,14 +51,14 @@ function WorkRow({ title, subtitle, tech, focus }) {
       viewport={{ once: true }}
       className="relative mt-24">
       {/* Row Content */}
-      <div className="flex justify-between lg:flex-row gap-12 py-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-16">
         {/* Left */}
-        <h3 className="text-xl lg:text-2xl font-bold">
+        <h3 className="w-1/3 p-4 text-xl lg:text-2xl font-bold">
           {title}
         </h3>
 
         {/* Middle */}
-        <div>
+        <div className='w-1/3 p-4'>
           <p className="text-lg font-semibold">
             {subtitle}
           </p>
@@ -68,7 +68,7 @@ function WorkRow({ title, subtitle, tech, focus }) {
         </div>
 
         {/* Right */}
-        <p className="text-sm text-gray-400 leading-relaxed max-w-md">
+        <p className="w-1/3 p-4 text-sm text-gray-400 leading-relaxed max-w-md">
           <span className="text-gray-500">Focus:</span> {focus}
         </p>
       </div>
