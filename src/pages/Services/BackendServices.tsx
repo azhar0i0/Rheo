@@ -188,7 +188,21 @@ const BackendServices = () => {
             onClick={() => navigate(-1)}
             className="mb-8 inline-flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15 5L8 12L15 19"
+                fill="none"
+                stroke="white"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
             Back
           </motion.button>
 

@@ -82,9 +82,8 @@ const WorkflowSection = () => {
                 {/* Header */}
                 <div className="mb-24">
                     <div className="flex items-center gap-2 mb-6">
-                        <span className="w-2 h-2 rounded-full bg-[#1fb6ff]" />
                         <span className="text-[#1fb6ff] text-[14px] tracking-wide">
-                            WorkFlow
+                            ⬤ ‎ ‎ WorkFlow
                         </span>
                     </div>
 

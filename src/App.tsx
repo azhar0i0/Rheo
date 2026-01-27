@@ -1,10 +1,19 @@
+// App.tsx
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import ScrollToTop from "./components/ScrollToTop";
+import { PageTransition } from "./components/PageTransition";
+
+// Pages
 import Index from "./pages/Index";
+import Blog from "./pages/Blog";
+import StartProject from "./pages/StartProject";
+import NotFound from "./pages/NotFound";
+
 // Services
 import AllServices from "./pages/AllServices";
 import WebServices from "./pages/Services/WebServices";
@@ -12,13 +21,37 @@ import AppServices from "./pages/Services/AppServices";
 import BackendServices from "./pages/Services/BackendServices";
 import SaasServices from "./pages/Services/SaasServices";
 import APIIntegrationServices from "./pages/Services/APIIntegrationsServices";
-// Other Pages
-import Blog from "./pages/Blog";
-import StartProject from "./pages/StartProject";
-import NotFound from "./pages/NotFound";
 import CustomSoftwareServices from "./pages/Services/CustomSoftwareServices";
 
 const queryClient = new QueryClient();
+
+function AnimatedRoutes() {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<PageTransition><Index /></PageTransition>} />
+
+        {/* Services */}
+        <Route path="/all-services" element={<PageTransition><AllServices /></PageTransition>} />
+        <Route path="/web-services" element={<PageTransition><WebServices /></PageTransition>} />
+        <Route path="/app-services" element={<PageTransition><AppServices /></PageTransition>} />
+        <Route path="/backend-services" element={<PageTransition><BackendServices /></PageTransition>} />
+        <Route path="/saas-services" element={<PageTransition><SaasServices /></PageTransition>} />
+        <Route path="/custom-software-services" element={<PageTransition><CustomSoftwareServices /></PageTransition>} />
+        <Route path="/api-integration-services" element={<PageTransition><APIIntegrationServices /></PageTransition>} />
+
+        {/* Other pages */}
+        <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
+        <Route path="/start-project" element={<PageTransition><StartProject /></PageTransition>} />
+
+        {/* Catch-all */}
+        <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
+      </Routes>
+    </AnimatePresence>
+  );
+}
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -27,22 +60,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* Services */}
-          <Route path="/all-services" element={<AllServices />} />
-          <Route path="/web-services" element={<WebServices />} />
-          <Route path="/app-services" element={<AppServices />} />
-          <Route path="/backend-services" element={<BackendServices />} />
-          <Route path="/saas-services" element={<SaasServices />} />
-          <Route path="/custom-software-services" element={<CustomSoftwareServices />} />
-          <Route path="/api-integration-services" element={<APIIntegrationServices />} />
-          {/* other pages */}
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/start-project" element={<StartProject />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <AnimatedRoutes />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

@@ -15,7 +15,7 @@ const Header = () => {
             <img
               src={logo}
               alt="Rheo"
-              className="w-24"
+              className="w-12 h-12 object-contain"
             />
           </Link>
 

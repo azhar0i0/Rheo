@@ -53,7 +53,7 @@ export default function AboutServicesSection() {
                     transition={{ duration: 0.7, ease: "easeOut" }}
                     viewport={{ once: true }}
                     className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#8B5CF6]" />
+                    <span className="w-2 h-2 rounded-full bg-[#8b2fc9]" />
                     <span className="text-[14px] text-[#A78BFA] tracking-wide">
                         About Our Services ( How we do Everything )
                     </span>
@@ -118,7 +118,7 @@ export default function AboutServicesSection() {
                         </p>
 
                         <Link
-                            to="/services"
+                            to="/all-services"
                             className="inline-flex items-center justify-center bg-[#0891b2] hover:bg-[#0ea5e9] transition-colors text-white text-[15px] font-medium px-10 py-2 rounded-full"
                         >
                             View All

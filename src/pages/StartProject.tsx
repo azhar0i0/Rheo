@@ -88,7 +88,22 @@ const StartProject = () => {
                 onClick={() => navigate(-1)}
                 className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"
               >
-                <ArrowLeft className="w-5 h-5" />
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15 5L8 12L15 19"
+                    fill="none"
+                    stroke="white"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                Back
               </button>
 
               <div className="mb-16">

@@ -188,7 +188,21 @@ const WebServices = () => {
             onClick={() => navigate(-1)}
             className="mb-8 inline-flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15 5L8 12L15 19"
+                fill="none"
+                stroke="white"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
             Back
           </motion.button>
 
@@ -244,10 +258,10 @@ const WebServices = () => {
                 {/* Start Your Project */}
                 <Link
                   to="/start-project"
-                  className="relative flex-1 h-[48px] rounded-xl bg-[#0096C7] hover:bg-[#0289b6] transition-colors"
+                  className="relative flex-1 h-[36px] rounded-sm bg-[#0096C7] hover:bg-[#0289b6] transition-colors"
                 >
                   {/* Centered Text */}
-                  <span className="absolute inset-0 flex items-center justify-center text-white text-[14px] font-medium">
+                  <span className="absolute inset-0 flex items-center justify-center text-white text-[14px] font-semibold">
                     Start Your Project
                   </span>
 
@@ -290,9 +304,9 @@ const WebServices = () => {
                   {/* Button */}
                   <button
                     className="
-                      h-[48px]
+                      h-[36px]
                       px-6
-                      rounded-xl
+                      rounded-sm
                       bg-[#0b0b0b]
                       border border-white/15
                       text-white

@@ -36,10 +36,9 @@ const ProcedurePlan = () => {
 
         {/* Top label + heading */}
         <div className="mb-16">
-          <div className="flex items-center gap-2 mb-4">
-            <span className="w-2 h-2 rounded-full bg-[#8b5cf6]" />
-            <span className="text-[#8b5cf6] text-[14px]">
-              (Procedure) Plan. Build. Deploy
+          <div className="mb-2">
+            <span className="text-[#8b2fc9] text-[14px]">
+              ⬤ ‎ (Procedure) Plan. Build. Deploy
             </span>
           </div>
 

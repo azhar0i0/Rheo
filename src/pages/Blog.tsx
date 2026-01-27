@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import Header from '@/components/ui/LandingPageUI/Header';
 import Footer from '@/components/Footer';
 import PageHeader from '@/components/PageHeader';
 
@@ -14,6 +13,8 @@ const fadeInUp = {
 };
 
 const Blog = () => {
+  
+
   const blogPosts = [
     {
       image: blogAi,

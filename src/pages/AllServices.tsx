@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import Header from '@/components/ui/LandingPageUI/Header';
+import Header from '@/components/LandingPageUI/Header';
 import Footer from '@/components/Footer';
 import PageHeader from '@/components/PageHeader';
 import ServiceCard from '@/components/ServiceCard';

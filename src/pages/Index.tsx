@@ -10,7 +10,6 @@ import {
   Plug,
 } from 'lucide-react';
 import { useState } from 'react';
-
 // Import images
 import heroAbstract from '@/assets/hero-abstract.avif';
 import webDevTeam from '@/assets/web-dev-team.jpg';
@@ -20,15 +19,15 @@ import cloudSolutions from '@/assets/cloud-solutions.jpg';
 import devops from '@/assets/devops.jpg';
 import flowFunction from '@/assets/flow-function.jpg';
 // UI Components
-import Header from '@/components/ui/LandingPageUI/Header';
+import Header from '@/components/LandingPageUI/Header';
 import PressableButton from '@/components/ui/PressableButton';
 import HeroLoop from '@/components/ui/HeroLoop';
-import ProcedurePlan from '@/components/ui/LandingPageUI/ProcedurePlan';
-import DiscoverCards from '@/components/ui/LandingPageUI/DiscoverCards';
-import BlogSection from '@/components/ui/LandingPageUI/BlogSection';
-import OurWorks from '@/components/ui/LandingPageUI/OurWorks';
-import AboutServicesSection from '@/components/ui/LandingPageUI/AboutServicesSection';
-import WorkflowSection from '@/components/ui/LandingPageUI/WorkflowSection';
+import ProcedurePlan from '@/components/LandingPageUI/ProcedurePlan';
+import DiscoverCards from '@/components/LandingPageUI/DiscoverCards';
+import BlogSection from '@/components/LandingPageUI/BlogSection';
+import OurWorks from '@/components/LandingPageUI/OurWorks';
+import AboutServicesSection from '@/components/LandingPageUI/AboutServicesSection';
+import WorkflowSection from '@/components/LandingPageUI/WorkflowSection';
 import Footer from '@/components/Footer';
 
 const containerVariants = {
@@ -142,9 +141,9 @@ const Index = () => {
       <section className="py-24 bg-black">
         <div className="max-w-[1200px] mx-auto px-6">
           <motion.div
-              initial={{ opacity: 0, y: 70 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-16 items-start">
+            initial={{ opacity: 0, y: 70 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-16 items-start">
 
             {/* LEFT CONTENT */}
             <motion.div
@@ -153,10 +152,9 @@ const Index = () => {
               viewport={{ once: true }}
             >
               {/* Label */}
-              <div className="flex items-center gap-2 mb-6">
-                <span className="w-2 h-2 rounded-full bg-[#8b5cf6]" />
-                <span className="text-[#8b5cf6] text-[14px] tracking-wide">
-                  Services
+              <div className="mb-2">
+                <span className="text-[#8b2fc9] text-[14px] tracking-wide">
+                  ⬤ ‎ Services
                 </span>
               </div>
 
@@ -337,19 +335,19 @@ const Index = () => {
               <div className="absolute left-0 top-0 h-full w-6 bg-black" />
 
               <motion.h3
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          viewport={{ once: true }} className="text-white text-[26px] font-semibold mb-4">
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true }} className="text-white text-[26px] font-semibold mb-4">
                 Join Us
               </motion.h3>
 
               <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          viewport={{ once: true }}
-               className="text-white/70 text-[15px] leading-[1.7] max-w-[420px] mb-8">
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true }}
+                className="text-white/70 text-[15px] leading-[1.7] max-w-[420px] mb-8">
                 Be part of a team that builds meaningful software with
                 clarity, creativity, and purpose.
               </motion.p>
@@ -359,26 +357,26 @@ const Index = () => {
                   type="email"
                   placeholder="Email Address"
                   className="w-full bg-[#0b0b0b] border border-[#1f1f1f]
-               rounded-xl px-4 pr-28 py-4 text-[14px] text-white
-               placeholder:text-[#666] outline-none
-               focus:border-[#1fb6ff]/50"
+                    rounded-xl px-4 pr-28 py-4 text-[14px] text-white
+                    placeholder:text-[#666] outline-none
+                    focus:border-[#1fb6ff]/50"
                 />
 
-                <button
-                  className="absolute right-1 top-1 bottom-1
-               bg-[#0196c8] hover:bg-[#1fb6ff]
-               transition-colors text-white text-[14px] font-bold
-                px-10 rounded-md"
-                >
-                  Enter
-                </button>
-
+                <Link to="/start-project">
+                  <button
+                    className="absolute right-1 top-1 bottom-1
+                      bg-[#0196c8] hover:bg-[#1fb6ff]
+                      transition-colors text-white text-[14px] font-bold
+                      px-10 rounded-md"
+                  >
+                    Enter
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
-
 
       {/* ========== FOOTER ========== */}
       <Footer />
