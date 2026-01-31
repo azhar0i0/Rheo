@@ -28,7 +28,8 @@ const StartProject = () => {
     'UI/UX Design',
     'Cloud Solutions',
     'DevOps & Automation',
-    'Full Stack Development'
+    'Full Stack Development',
+    'Other Services'
   ];
 
   const faqItems = [
