@@ -49,7 +49,7 @@ function WorkRow({ title, subtitle, tech, focus }) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.3 }}
       viewport={{ once: true }}
-      className="relative mt-24">
+      className="relative mt-24 mb-24">
       {/* Row Content */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-16">
         {/* Left */}
