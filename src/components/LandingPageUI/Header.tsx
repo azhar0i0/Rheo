@@ -7,8 +7,8 @@ const Header = () => {
       <div className="relative h-[72px] w-full bg-black/80 backdrop-blur-md">
 
         {/* 90% Bottom Border */}
-        <div className="absolute bottom-0 left-1/2 h-px w-[90%] -translate-x-1/2 bg-white/10" />
-        <div className="max-w-[80%] mx-auto h-full px-6 flex items-center justify-between">
+        <div className="absolute bottom-0 left-1/2 h-px w-[93%] -translate-x-1/2 bg-white/10" />
+        <div className="max-w-[88%] mx-auto h-full px-6 flex items-center justify-between">
 
           {/* Logo */}
           <Link to="/" className="flex items-center">
