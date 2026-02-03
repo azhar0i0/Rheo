@@ -100,23 +100,23 @@ const WorkflowSection = () => {
                         transition={{ duration: 0.5, delay: 0.3 }}
                         viewport={{ once: true }}
                         key={item.step}
-                        className={`border-t border-white/10 py-20`}
+                        className={`border-t border-[#1fb6ff]/40 py-20`}
                     >
                         <div
-                            className="grid gap-10 mt-20"
+                            className="grid gap-20 mt-20"
                             style={{ gridTemplateColumns: "160px 1fr" }}
                         >
 
                             {/* Left Tag */}
                             <div>
-                                <span className="inline-flex items-center justify-center px-6 py-2 rounded-full border border-[#1fb6ff]/40 text-[#1fb6ff] text-[14px]">
+                                <span className="inline-flex items-center justify-center px-6 py-2 rounded-full border text-[#1fb6ff] text-[14px]">
                                     {item.tag}
                                 </span>
                             </div>
 
                             {/* Right Content */}
-                            <div className="flex gap-10">
-                                <span className="text-[#1fb6ff] text-3xl font-medium">
+                            <div className="flex gap-20">
+                                <span className="text-[#1fb6ff] text-4xl font-medium">
                                     {item.step}
                                 </span>
 

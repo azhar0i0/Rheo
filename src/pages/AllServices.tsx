@@ -17,21 +17,21 @@ const AllServices = () => {
       title: 'Web Development',
       description: 'We design visually compelling, user-centric websites that blend creativity with functional brand from scratch.',
       image: webDevTeam,
-      tags: ['React', 'Node.js', 'Net'],
+      tags: ['React', 'Next.js', 'Net'],
       reverse: false
     },
     {
       title: 'Mobile Development',
       description: 'Cross-platform mobile apps and responsive web applications that deliver exceptional user experiences.',
       image: mobileDev,
-      tags: ['React', 'Flutter', 'iOS'],
+      tags: ['React', 'Flutter', 'iOS', 'Andriod'],
       reverse: true
     },
     {
       title: 'UI UX Design',
       description: 'User-centered design solutions that combine aesthetics with functionality for optimal user engagement.',
       image: uiUxDesign,
-      tags: [],
+      tags: ['Figma', 'Framer'],
       reverse: false
     },
     {

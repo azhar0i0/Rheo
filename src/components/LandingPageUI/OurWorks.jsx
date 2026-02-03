@@ -74,7 +74,7 @@ function WorkRow({ title, subtitle, tech, focus }) {
       </div>
 
       {/* FULL-WIDTH DIVIDER (this is what you were missing) */}
-      <div className="relative h-px bg-gray-200 mt-20">
+      <div className="relative h-px bg-gray-200 mt-24">
         <hr />
         {/* Circle */}
         <span

@@ -120,7 +120,7 @@ const StartProject = () => {
       </h2>
 
       <p className="text-muted-foreground text-lg md:text-xl max-w-sm mb-10 leading-relaxed">
-        Your project details are now with our strategy team. We'll review everything and reach out within 24 hours.
+        Your project details are now with our strategy team. We'll review everything and reach out you as soon as possible.
       </p>
 
       <button

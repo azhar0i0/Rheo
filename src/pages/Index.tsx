@@ -231,7 +231,7 @@ const Index = () => {
                       Mobile App Development
                     </h3>
                     <p className="text-[#9ca3af] text-[14px] leading-[1.6]">
-                      Mobile solutions crafted to inspire, engage.
+                      Mobile solutions crafted to inspire, engage, User friendly interface.
                     </p>
                   </div>
                 </div>
@@ -248,7 +248,7 @@ const Index = () => {
                       Backend Development
                     </h3>
                     <p className="text-[#9ca3af] text-[14px] leading-[1.6]">
-                      Powerful systems behind the scenes.
+                      Powerful systems behind the scenes, Proper professionally managable.
                     </p>
                   </div>
                 </div>
@@ -299,7 +299,7 @@ const Index = () => {
                       API & Third-Party Integrations
                     </h3>
                     <p className="text-[#9ca3af] text-[14px] leading-[1.6]">
-                      Systems that communicate seamlessly.
+                      Systems that communicate seamlessly, perfectly and professionally.
                     </p>
                   </div>
                 </div>
