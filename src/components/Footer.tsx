@@ -108,11 +108,11 @@ const Footer = () => {
           variants={itemVariants}
           className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-border/30"
         >
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-muted-foreground shadow-lg">
             © 2025 Rheo Technologies. All rights reserved.
           </p>
 
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-muted-foreground shadow-lg">
             Pakistan {currentTime}
           </p>
 
@@ -120,7 +120,7 @@ const Footer = () => {
             onClick={scrollToTop}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors shadow-lg"
           >
             Back to top
             <ArrowUp className="w-4 h-4" />

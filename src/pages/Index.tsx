@@ -29,6 +29,7 @@ import OurWorks from '@/components/LandingPageUI/OurWorks';
 import AboutServicesSection from '@/components/LandingPageUI/AboutServicesSection';
 import WorkflowSection from '@/components/LandingPageUI/WorkflowSection';
 import Footer from '@/components/Footer';
+import TextScroll from '@/components/LandingPageUI/TextScroll';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -96,8 +97,10 @@ const Index = () => {
       <Header />
 
       {/* ========== HERO SECTION ========== */}
-      <section className="relative min-h-screen overflow-hidden bg-black pt-[72px]">
-
+      <motion.section
+        initial={{ opacity: 0, y: 70 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        className="relative min-h-screen overflow-hidden bg-black pt-[72px]">
         {/* Background */}
         <div className="absolute inset-0">
           <img
@@ -132,7 +135,7 @@ const Index = () => {
             <PressableButton />
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ========== HERO LOOP ========== */}
       <HeroLoop />
@@ -314,6 +317,9 @@ const Index = () => {
 
       {/* ========== OUR WORKS SECTION ========== */}
       <OurWorks />
+
+      {/* ========== Scrolling Text ========== */}
+      <TextScroll />
 
       {/* ========== BLOG SECTION ========== */}
       <BlogSection />

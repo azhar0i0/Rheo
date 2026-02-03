@@ -59,16 +59,79 @@ const StartProject = () => {
     }
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission
-  };
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
+
+  // 1. Add this state at the top
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  // 2. Update your handleSubmit
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Your logic here...
+    setIsSubmitted(true);
+  };
+
+  // 3. The JSX for the Confirmation Section
+  // Wrap your form in { !isSubmitted ? ( <form> ) : ( <SuccessState /> ) }
+  const SuccessState = () => (
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={fadeInUp}
+      className="flex flex-col items-start justify-center py-12"
+    >
+      {/* Back Button */}
+      <button
+        type="button"
+        onClick={() => navigate(-1)}
+        className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" >
+          <path d="M15 5L8 12L15 19" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+        Back
+      </button>
+      <motion.div
+        variants={{
+          hidden: { scale: 0, rotate: -20 },
+          visible: {
+            scale: 1,
+            rotate: 0,
+            transition: { type: "spring", stiffness: 200, damping: 15 }
+          }
+        }}
+        className="mb-10 p-5 rounded-3xl bg-primary/5 border border-primary/20 relative group"
+      >
+        {/* Orbital Glow Effect */}
+        <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full opacity-50 group-hover:opacity-100 transition-opacity" />
+
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-primary relative z-10" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M22 2L11 13"></path>
+          <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
+        </svg>
+      </motion.div>
+
+      <h2 className="text-5xl md:text-6xl font-bold mb-6 tracking-tighter leading-none">
+        Inquiry <br />
+        <span className="text-primary">Received.</span>
+      </h2>
+
+      <p className="text-muted-foreground text-lg md:text-xl max-w-sm mb-10 leading-relaxed">
+        Your project details are now with our strategy team. We'll review everything and reach out within 24 hours.
+      </p>
+
+      <button
+        onClick={() => setIsSubmitted(false)}
+        className="group flex items-center gap-2 text-sm font-semibold tracking-wide text-white/50 hover:text-primary transition-colors uppercase"
+      >
+        <div className="w-8 h-[1px] bg-white/20 group-hover:bg-primary transition-colors" />
+        Send another inquiry
+      </button>
+    </motion.div>
+  );
 
   return (
     <div className="min-h-screen bg-[#000000]">
@@ -82,124 +145,132 @@ const StartProject = () => {
               initial="hidden"
               animate="visible"
               variants={fadeInUp}
+              inherit={false}
             >
-              {/* Back Button */}
-              <button
-                type="button"
-                onClick={() => navigate(-1)}
-                className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"
-              >
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M15 5L8 12L15 19"
-                    fill="none"
-                    stroke="white"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                Back
-              </button>
-
-              <div className="mb-16">
-                <p className="text-primary text-sm">Rheo Technologies</p>
-                <h1 className="font-display text-[67px] font-bold">
-                  <span className="text-foreground">Start your</span>{' '}
-                  <span className="text-primary">Project</span>
-                </h1>
-              </div>
-
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Name */}
-                <div>
-                  <label className="block text-sm text-foreground mb-2">Your Name</label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    placeholder="Enter your Name"
-                    className="w-full bg-transparent border-b border-border pb-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
-                  />
-                </div>
-
-                {/* Email */}
-                <div>
-                  <label className="block text-sm text-foreground mb-2">Your Email</label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="Enter the Email"
-                    className="w-full bg-transparent border-b border-border pb-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
-                  />
-                </div>
-
-                {/* Service Select */}
-                <div className="relative">
-                  <label className="block text-sm text-foreground mb-2">What you need from us?</label>
+              {/* Conditional Rendering Logic */}
+              {!isSubmitted ? (
+                <>
+                  {/* Back Button */}
                   <button
                     type="button"
-                    onClick={() => setIsSelectOpen(!isSelectOpen)}
-                    className="w-full flex items-center justify-between bg-transparent border-b border-border pb-3 text-left"
+                    onClick={() => navigate(-1)}
+                    className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"
                   >
-                    <span className={formData.service ? 'text-foreground' : 'text-muted-foreground'}>
-                      {formData.service || 'Select'}
-                    </span>
-                    <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform ${isSelectOpen ? 'rotate-180' : ''}`} />
-                  </button>
-
-                  {isSelectOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="absolute z-50 top-full left-0 right-0 mt-2 bg-card border border-border rounded-lg shadow-lg overflow-hidden"
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      {services.map((service) => (
-                        <button
-                          key={service}
-                          type="button"
-                          onClick={() => {
-                            setFormData(prev => ({ ...prev, service }));
-                            setIsSelectOpen(false);
-                          }}
-                          className="w-full px-4 py-3 text-left text-foreground hover:bg-secondary transition-colors"
+                      <path
+                        d="M15 5L8 12L15 19"
+                        fill="none"
+                        stroke="white"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    Back
+                  </button>
+                  {/* heading of form */}
+                  <div className="mb-16">
+                    <p className="text-primary text-sm">Rheo Technologies</p>
+                    <h1 className="font-display text-[67px] font-bold">
+                      <span className="text-foreground">Start your</span>{' '}
+                      <span className="text-primary">Project</span>
+                    </h1>
+                  </div>
+                  {/* Contact form  */}
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    {/* Name */}
+                    <div>
+                      <label className="block text-sm text-foreground mb-2">Your Name</label>
+                      <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        placeholder="Enter your Name"
+                        className="w-full bg-transparent border-b border-border pb-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
+                      />
+                    </div>
+
+                    {/* Email */}
+                    <div>
+                      <label className="block text-sm text-foreground mb-2">Your Email</label>
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        placeholder="Enter the Email"
+                        className="w-full bg-transparent border-b border-border pb-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
+                      />
+                    </div>
+
+                    {/* Service Select */}
+                    <div className="relative">
+                      <label className="block text-sm text-foreground mb-2">What you need from us?</label>
+                      <button
+                        type="button"
+                        onClick={() => setIsSelectOpen(!isSelectOpen)}
+                        className="w-full flex items-center justify-between bg-transparent border-b border-border pb-3 text-left"
+                      >
+                        <span className={formData.service ? 'text-foreground' : 'text-muted-foreground'}>
+                          {formData.service || 'Select'}
+                        </span>
+                        <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform ${isSelectOpen ? 'rotate-180' : ''}`} />
+                      </button>
+
+                      {isSelectOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="absolute z-50 top-full left-0 right-0 mt-2 bg-card border border-border rounded-lg shadow-lg overflow-hidden"
                         >
-                          {service}
-                        </button>
-                      ))}
-                    </motion.div>
-                  )}
-                </div>
+                          {services.map((service) => (
+                            <button
+                              key={service}
+                              type="button"
+                              onClick={() => {
+                                setFormData(prev => ({ ...prev, service }));
+                                setIsSelectOpen(false);
+                              }}
+                              className="w-full px-4 py-3 text-left text-foreground hover:bg-secondary transition-colors"
+                            >
+                              {service}
+                            </button>
+                          ))}
+                        </motion.div>
+                      )}
+                    </div>
 
-                {/* Description */}
-                <div>
-                  <label className="block text-sm text-foreground mb-2">Project Description</label>
-                  <textarea
-                    name="description"
-                    value={formData.description}
-                    onChange={handleInputChange}
-                    placeholder="Type Here..."
-                    rows={4}
-                    className="w-full bg-transparent border border-border rounded-lg p-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors resize-none"
-                  />
-                </div>
+                    {/* Description */}
+                    <div>
+                      <label className="block text-sm text-foreground mb-2">Project Description</label>
+                      <textarea
+                        name="description"
+                        value={formData.description}
+                        onChange={handleInputChange}
+                        placeholder="Type Here..."
+                        rows={4}
+                        className="w-full bg-transparent border border-border rounded-lg p-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors resize-none"
+                      />
+                    </div>
 
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  className="btn-primary w-full px-[214px] md:w-auto text-white hover:bg-[#87C296] hover:text-black transition-all"
-                >
-                  Submit Project Query
-                </button>
-              </form>
+                    {/* Submit Button */}
+                    <button
+                      type="submit"
+                      className="btn-primary w-full px-[214px] md:w-auto text-white hover:bg-[#87C296] hover:text-black transition-all"
+                    >
+                      Submit Project Query
+                    </button>
+                  </form>
+                </>
+              ) : (
+                <SuccessState />
+              )}
             </motion.div>
 
             {/* Contact Image */}
