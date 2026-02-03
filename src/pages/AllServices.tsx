@@ -1,15 +1,15 @@
 import { motion } from 'framer-motion';
-import Header from '@/components/LandingPageUI/Header';
 import Footer from '@/components/Footer';
 import PageHeader from '@/components/PageHeader';
 import ServiceCard from '@/components/ServiceCard';
-
+// Assets
 import webDevTeam from '@/assets/web-dev-team.jpg';
 import mobileDev from '@/assets/mobile-dev.jpg';
 import uiUxDesign from '@/assets/ui-ux-design.jpg';
 import cloudSolutions from '@/assets/cloud-solutions.jpg';
 import devops from '@/assets/devops.jpg';
 import flowFunction from '@/assets/flow-function.jpg';
+import backendDev from '@/assets/BackendServices.jpg';
 
 const AllServices = () => {
   const services = [
@@ -54,20 +54,30 @@ const AllServices = () => {
       image: flowFunction,
       tags: ['Full Stack', 'Front End', 'Back End'],
       reverse: true
+    },
+    {
+      title: 'Backend Development',
+      description: 'Scalable backend development with automated deployment strategies accourding to lastes world requriments.',
+      image: backendDev,
+      tags: ['Node.js', 'Django'],
+      reverse: false
     }
   ];
 
   return (
     <div className="min-h-screen bg-[#000000]">
 
-      <PageHeader 
+      <PageHeader
         title="Procedures"
         subtitle="Services"
         description="Ideas, stories, and strategies from the creative edge covering design, development, and the tools that bring bold digital work to life."
       />
 
       {/* Services List */}
-      <section className="py-20">
+      <motion.section
+        initial={{ opacity: 0, x: 30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.5 }} className="py-20">
         <div className="section-container">
           <div className="divide-y divide-border">
             {services.map((service, index) => (
@@ -82,7 +92,7 @@ const AllServices = () => {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       <Footer />
     </div>

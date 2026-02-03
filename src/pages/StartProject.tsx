@@ -19,6 +19,13 @@ const StartProject = () => {
     description: ''
   });
 
+  const [errors, setErrors] = useState<{
+    name?: string;
+    email?: string;
+    service?: string;
+    description?: string;
+  }>({});
+
   const [isSelectOpen, setIsSelectOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -59,9 +66,40 @@ const StartProject = () => {
     }
   ];
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
+
     setFormData(prev => ({ ...prev, [name]: value }));
+    setErrors(prev => ({ ...prev, [name]: undefined }));
+  };
+
+  const validateForm = () => {
+    const newErrors: typeof errors = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Enter a valid email address';
+    }
+
+    if (!formData.service) {
+      newErrors.service = 'Please select a service';
+    }
+
+    if (!formData.description.trim()) {
+      newErrors.description = 'Project description is required';
+    } else if (formData.description.length < 20) {
+      newErrors.description = 'Description must be at least 20 characters';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   // 1. Add this state at the top
@@ -70,9 +108,13 @@ const StartProject = () => {
   // 2. Update your handleSubmit
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Your logic here...
+
+    if (!validateForm()) return;
+
+    // submit logic here (API call etc.)
     setIsSubmitted(true);
   };
+
 
   // 3. The JSX for the Confirmation Section
   // Wrap your form in { !isSubmitted ? ( <form> ) : ( <SuccessState /> ) }
@@ -193,7 +235,9 @@ const StartProject = () => {
                         onChange={handleInputChange}
                         placeholder="Enter your Name"
                         className="w-full bg-transparent border-b border-border pb-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
-                      />
+                      />{errors.name && (
+                        <p className="text-red-500 text-xs mt-2">{errors.name}</p>
+                      )}
                     </div>
 
                     {/* Email */}
@@ -206,7 +250,9 @@ const StartProject = () => {
                         onChange={handleInputChange}
                         placeholder="Enter the Email"
                         className="w-full bg-transparent border-b border-border pb-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
-                      />
+                      />{errors.email && (
+                        <p className="text-red-500 text-xs mt-2">{errors.email}</p>
+                      )}
                     </div>
 
                     {/* Service Select */}
@@ -222,6 +268,9 @@ const StartProject = () => {
                         </span>
                         <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform ${isSelectOpen ? 'rotate-180' : ''}`} />
                       </button>
+                      {errors.service && (
+                        <p className="text-red-500 text-xs mt-2">{errors.service}</p>
+                      )}
 
                       {isSelectOpen && (
                         <motion.div
@@ -257,6 +306,9 @@ const StartProject = () => {
                         rows={4}
                         className="w-full bg-transparent border border-border rounded-lg p-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors resize-none"
                       />
+                      {errors.description && (
+                        <p className="text-red-500 text-xs mt-2">{errors.description}</p>
+                      )}
                     </div>
 
                     {/* Submit Button */}

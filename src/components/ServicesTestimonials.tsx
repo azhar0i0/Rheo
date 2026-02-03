@@ -15,6 +15,7 @@ function ServicesTestimonials() {
     <motion.section
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
       className="py-20 mt-24">
       <div className="max-w-[90%] mx-auto px-4">
 
