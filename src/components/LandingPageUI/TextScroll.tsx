@@ -16,11 +16,11 @@ const TextScroll = () => {
   });
 
   return (
-    <div style={{ padding: "10vh 0" }}>
+    <div >
       <div 
         ref={containerRef} 
         style={{ 
-          maxWidth: '1300px', 
+          maxWidth: '90%', 
           margin: '0 auto', 
           padding: '12px',
         }}

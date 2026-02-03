@@ -10,6 +10,9 @@ Life–Work Connect is a professionally designed web platform created to support
 
 This project was **designed and engineered in-house by Rheo Technologies**, following modern frontend best practices and a strong emphasis on accessibility, performance, and long-term maintainability.
 
+![Hero Section Preview Image](/preview.png)
+
+
 ---
 
 ## About Rheo Technologies
@@ -70,10 +73,10 @@ Every design choice is intentional and serves usability first.
 
 ```bash
 # Clone the repository
-git clone <YOUR_GIT_URL>
+git clone https://github.com/azhar0i0/rheo.git
 
 # Navigate into the project directory
-cd <YOUR_PROJECT_NAME>
+cd rheo
 
 # Install dependencies
 npm install
