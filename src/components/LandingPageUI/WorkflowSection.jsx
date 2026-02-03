@@ -100,7 +100,7 @@ const WorkflowSection = () => {
                         transition={{ duration: 0.5, delay: 0.3 }}
                         viewport={{ once: true }}
                         key={item.step}
-                        className={`border-t border-white/10 pt-16 ${index !== 0 ? "mt-20" : ""}`}
+                        className={`border-t border-white/10 py-20`}
                     >
                         <div
                             className="grid gap-10 mt-20"
