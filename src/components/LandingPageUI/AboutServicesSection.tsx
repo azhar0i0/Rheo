@@ -44,7 +44,7 @@ export default function AboutServicesSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
                 viewport={{ once: true }}
-                className="max-w-[1200px] mx-auto px-6">
+                className="max-w-[90%] mx-auto px-6">
 
                 {/* Label */}
                 <motion.div
@@ -59,7 +59,7 @@ export default function AboutServicesSection() {
                 </motion.div>
 
                 {/* Heading */}
-                <h2 className="max-w-[820px] text-[20px] leading-[1.15] font-semibold text-[#CFFAFE] mb-10">
+                <h2 className="max-w-[90%] text-[20px] leading-[1.15] font-semibold text-[#CFFAFE] mb-10">
                     Multiple workflows to build, all powered by one engine <br /> working quietly in the background.
                 </h2>
 

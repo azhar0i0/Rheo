@@ -53,7 +53,7 @@ const AccordionSection = () => {
             transition={{ duration: 0.6, ease: 'easeOut' }}
             className="py-12"
         >
-            <div className="max-w-[1300px] mx-auto px-4">
+            <div className="max-w-[90%] mx-auto px-4">
                 <div className="space-y-3">
                     {accordionData.map((item, index) => {
                         const isOpen = openAccordion === index;

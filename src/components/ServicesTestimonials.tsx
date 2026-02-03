@@ -16,7 +16,7 @@ function ServicesTestimonials() {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       className="py-20 mt-24">
-      <div className="max-w-[1300px] mx-auto px-4">
+      <div className="max-w-[90%] mx-auto px-4">
 
         <motion.h2
           initial={{ opacity: 0, y: 30 }}

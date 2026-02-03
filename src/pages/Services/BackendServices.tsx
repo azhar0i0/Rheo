@@ -17,7 +17,7 @@ const BackendServices = () => {
 
       {/* Hero Section */}
       <section className="pt-20 pb-12">
-        <div className="max-w-[1300px] mx-auto">
+        <div className="max-w-[90%] mx-auto">
 
           {/* Back Button */}
           <motion.button

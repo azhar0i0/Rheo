@@ -32,7 +32,7 @@ const ProcedurePlan = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
           viewport={{ once: true }} 
-          className="max-w-[1200px] mx-auto px-6">
+          className="max-w-[90%] mx-auto px-6">
 
         {/* Top label + heading */}
         <div className="mb-16">

@@ -35,7 +35,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative mt-20">
+    <footer className="relative pt-24">
       {/* Earth Background */}
       <motion.div
         initial={{ opacity: 0 }}

@@ -121,7 +121,7 @@ function ServicesTabs() {
         <div>
             {/* ========== TABS SECTION ========== */}
             <section className="pb-12">
-                <div className="max-w-[1300px] mx-auto">
+                <div className="max-w-[90%] mx-auto">
                     <div className="grid md:grid-cols-3 gap-8">
 
                         {/* TAB CONTENT */}

@@ -112,27 +112,28 @@ const Index = () => {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 mx-auto max-w-[1200px] px-6 pt-[140px] text-center">
+        <div className="relative min-h-screen flex items-center justify-center">
+          <div className="relative z-10 mx-auto max-w-[90%] px-6 text-center">
+            {/* Headline */}
+            <h1 className="mx-auto max-w-[900px] font-display text-[40px] md:text-[56px] font-bold leading-[1.1] tracking-tight text-white">
+              From architecture to deployment
+              <br />
+              <span className="inline-flex items-center gap-2">
+                <span className="text-white">—</span>
+                <span className="text-[#1fb6ff]">flawlessly executed.</span>
+              </span>
+            </h1>
 
-          {/* Headline */}
-          <h1 className="mx-auto max-w-[900px] font-display text-[40px] md:text-[56px] font-bold leading-[1.1] tracking-tight text-white">
-            From architecture to deployment
-            <br />
-            <span className="inline-flex items-center gap-2">
-              <span className="text-white">—</span>
-              <span className="text-[#1fb6ff]">flawlessly executed.</span>
-            </span>
-          </h1>
+            {/* Description */}
+            <p className="mx-auto mt-6 max-w-[520px] text-[15px] leading-[1.7] text-white/60">
+              Full-service software development studio delivering web, mobile,
+              cloud, and custom solutions — from concept to scale.
+            </p>
 
-          {/* Description */}
-          <p className="mx-auto mt-6 max-w-[520px] text-[15px] leading-[1.7] text-white/60">
-            Full-service software development studio delivering web, mobile,
-            cloud, and custom solutions — from concept to scale.
-          </p>
-
-          {/* CTA */}
-          <div className="mt-10 flex justify-center">
-            <PressableButton />
+            {/* CTA */}
+            <div className="mt-10 flex justify-center">
+              <PressableButton />
+            </div>
           </div>
         </div>
       </motion.section>
@@ -142,7 +143,7 @@ const Index = () => {
 
       {/* ========== SERVICES SECTION ========== */}
       <section className="py-24 bg-black">
-        <div className="max-w-[1200px] mx-auto px-6">
+        <div className="max-w-[90%] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 70 }}
             whileInView={{ opacity: 1, y: 0 }}

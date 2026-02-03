@@ -30,7 +30,7 @@ export default function BlogSection() {
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
       viewport={{ once: true }}
-       className="max-w-[1200px] mx-auto px-6">
+       className="max-w-[90%] mx-auto px-6">
 
         {/* Label */}
         <div className="flex items-center gap-2">
