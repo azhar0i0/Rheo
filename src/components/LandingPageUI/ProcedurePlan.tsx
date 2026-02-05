@@ -61,7 +61,7 @@ const ProcedurePlan = () => {
             <img
               src={steps[activeStep].image}
               alt=""
-              className="w-full max-w-[480px] mx-auto"
+              className="w-full sm:max-w-full md:max-w-[480px] mx-auto"
             />
           </motion.div>
 

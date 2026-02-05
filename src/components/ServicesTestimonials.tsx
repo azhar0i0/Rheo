@@ -23,7 +23,7 @@ function ServicesTestimonials() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-display text-3xl md:text-4xl font-bold text-center mb-12 text-white border rounded-md py-4 w-96 mx-auto"
+          className="font-display text-3xl md:text-4xl font-bold text-center md:mb-12 text-white border rounded-md py-4 w-96 mx-auto"
         >
           About Our Services
         </motion.h2>

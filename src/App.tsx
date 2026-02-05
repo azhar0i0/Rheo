@@ -31,7 +31,15 @@ function AnimatedRoutes() {
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<PageTransition><Index /></PageTransition>} />
+        {/* Home */}
+        <Route
+          path="/"
+          element={
+            <PageTransition>
+              <Index />
+            </PageTransition>
+          }
+        />
 
         {/* Services */}
         <Route path="/all-services" element={<PageTransition><AllServices /></PageTransition>} />
@@ -46,8 +54,15 @@ function AnimatedRoutes() {
         <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
         <Route path="/start-project" element={<PageTransition><StartProject /></PageTransition>} />
 
-        {/* Catch-all */}
-        <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
+        {/* 404 Not Found */}
+        <Route
+          path="*"
+          element={
+            <PageTransition>
+              <NotFound />
+            </PageTransition>
+          }
+        />
       </Routes>
     </AnimatePresence>
   );

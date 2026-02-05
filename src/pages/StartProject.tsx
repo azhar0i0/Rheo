@@ -527,7 +527,7 @@ const StartProject = () => {
               className="text-center mb-24"
             >
               <p className="text-sm text-foreground/70 mb-2">(FAQ)</p>
-              <h2 className="font-display text-4xl md:text-[60px] font-bold mb-2">
+              <h2 className="font-display text-3xl md:text-[60px] font-bold mb-2">
                 Your Questions, Answered
               </h2>
               <p className="text-foreground/70">services that Rheo Technologies Provide</p>

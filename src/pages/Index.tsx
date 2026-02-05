@@ -199,7 +199,7 @@ const Index = () => {
 
       {/* ========== SERVICES SECTION ========== */}
       <section className="py-24 bg-black">
-        <div className="max-w-[90%] mx-auto px-6">
+        <div className="md:max-w-[90%] sm:max-w-[100%] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 70 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -207,7 +207,7 @@ const Index = () => {
 
             {/* LEFT CONTENT */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
@@ -253,7 +253,7 @@ const Index = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 height-[1500px]"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
             >
               {/* Card 1 */}
               <Link
@@ -393,7 +393,7 @@ const Index = () => {
         <section className="bg-black pt-24 overflow-hidden hidden md:block">
           <div className="relative px-6">
 
-            <div className="relative max-w-[520px] -translate-x-6 md:-translate-x-10">
+            <div className="relative max-w-[520px] md:-translate-x-10">
 
               <div className="relative rounded-2xl border border-white/10 bg-black px-8 py-10 pl-[60px]">
                 {/* Hide left border */}

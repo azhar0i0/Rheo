@@ -26,11 +26,63 @@ export default function BlogSection() {
   return (
     <section className="bg-black text-white py-28 mt-24">
       <motion.div
-      initial={{ opacity: 0, x: 60 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.7, ease: "easeOut" }}
-      viewport={{ once: true }}
-       className="max-w-[90%] mx-auto px-6">
+        initial={{ opacity: 0, x: 60 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="max-w-[90%] mx-auto px-6 hidden md:block">
+
+        {/* Label */}
+        <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="text-[#8b2fc9] text-[14px]">⬤ ‎ Blog</span>
+          </div>
+        </div>
+
+        {/* Heading */}
+        <h2 className="max-w-[720px] text-xl md:text-xl font-semibold text-[#CFFAFE] mb-16 leading-tight">
+          Channel futuristic force to innovate boldly, focus deeply, <br /> and achieve more.
+        </h2>
+
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {blogs.map((blog, index) => (
+            <Link
+              key={index}
+              to="/blog"
+              className="group block rounded-2xl overflow-hidden hover:borderBottom-1 hover:border-[#22d3ee]/40 transition-colors"
+            >
+              {/* Image */}
+              <div className="aspect-[4/3] overflow-hidden">
+                <img
+                  src={blog.image}
+                  alt={blog.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+
+              {/* Content */}
+              <div className="p-6 flex flex-col gap-3 min-h-[180px]">
+                <h3 className="text-lg font-semibold">
+                  {blog.title}
+                </h3>
+                <p className="text-sm text-gray-400 leading-relaxed">
+                  {blog.desc}
+                </p>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+      </motion.div>
+
+      {/* Mobile version */}
+      <motion.div
+        initial={{ opacity: 0, x: -5 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="max-w-[100%] mx-auto px-6 sm:block md:hidden">
 
         {/* Label */}
         <div className="flex items-center gap-2">
