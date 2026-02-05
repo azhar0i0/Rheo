@@ -77,7 +77,7 @@ const WorkflowSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
                 viewport={{ once: true }}
-                className="max-w-[90%] mx-auto hidden lg:block">
+                className="max-w-[90%] mx-auto hidden md:block">
 
                 {/* Header */}
                 <div className="mb-24">
@@ -142,6 +142,7 @@ const WorkflowSection = () => {
 
             </motion.div>
 
+            
             {/* Mobile Workflow Layout */}
             <motion.div
                 initial={{ opacity: 0, y: 60 }}
@@ -205,7 +206,6 @@ const WorkflowSection = () => {
                     </div>
                 </div>
             </motion.div>
-
         </section>
     );
 };

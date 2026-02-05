@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, ChevronDown } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { ChevronDown } from 'lucide-react';
 import Footer from '@/components/Footer';
 import FAQAccordion from '@/components/FAQAccordion';
 import contactIllustration from '@/assets/contact-illustration.png';
