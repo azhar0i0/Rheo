@@ -72,6 +72,7 @@ const WORKFLOW_DATA = [
 const WorkflowSection = () => {
     return (
         <section className="bg-black py-28">
+            {/* Laptop view */}
             <motion.div
                 initial={{ opacity: 0, y: 60 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -141,7 +142,6 @@ const WorkflowSection = () => {
                 ))}
 
             </motion.div>
-
             
             {/* Mobile Workflow Layout */}
             <motion.div
@@ -149,8 +149,8 @@ const WorkflowSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
                 viewport={{ once: true }}
-                className="block lg:hidden">
-                <div className="max-w-[92%] mx-auto">
+                className="block md:hidden">
+                <div className="max-w-[92%] mx-auto block md:hidden">
 
                     {/* Mobile Header */}
                     <div className="mb-16">
@@ -208,6 +208,6 @@ const WorkflowSection = () => {
             </motion.div>
         </section>
     );
-};
+};  
 
 export default WorkflowSection;
