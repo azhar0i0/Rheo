@@ -77,7 +77,7 @@ const WorkflowSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
                 viewport={{ once: true }}
-                className="max-w-[90%] mx-auto">
+                className="max-w-[90%] mx-auto hidden lg:block">
 
                 {/* Header */}
                 <div className="mb-24">
@@ -141,6 +141,71 @@ const WorkflowSection = () => {
                 ))}
 
             </motion.div>
+
+            {/* Mobile Workflow Layout */}
+            <motion.div
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true }}
+                className="block lg:hidden">
+                <div className="max-w-[92%] mx-auto">
+
+                    {/* Mobile Header */}
+                    <div className="mb-16">
+                        <span className="text-[#1fb6ff] text-[13px] tracking-wide">
+                            ⬤ ‎ ‎ Workflow
+                        </span>
+
+                        <h2 className="text-white text-3xl font-semibold mt-4 leading-tight">
+                            Rheo Technologies SmartBuild Process
+                        </h2>
+                    </div>
+
+                    {/* Mobile Cards */}
+                    <div className="space-y-12">
+                        {WORKFLOW_DATA.map((item) => (
+                            <motion.div
+                                key={item.step}
+                                initial={{ opacity: 0, y: 40 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.4 }}
+                                viewport={{ once: true }}
+                                className="border border-[#1fb6ff]/30 rounded-2xl p-6"
+                            >
+                                {/* Step + Tag */}
+                                <div className="flex items-center justify-between mb-6">
+                                    <span className="text-[#1fb6ff] text-xl font-medium">
+                                        {item.step}
+                                    </span>
+
+                                    <span className="px-4 py-1 rounded-full border border-[#1fb6ff]/40 text-[#1fb6ff] text-[12px]">
+                                        {item.tag}
+                                    </span>
+                                </div>
+
+                                {/* Title */}
+                                <h3 className="text-white text-lg font-semibold mb-4 leading-snug">
+                                    {item.title}
+                                </h3>
+
+                                {/* Points */}
+                                <ul className="space-y-3 text-white/70 text-[14px] leading-relaxed">
+                                    {item.points.map((point, idx) => (
+                                        <li key={idx}>
+                                            <span className="text-white font-medium">
+                                                {point.label}
+                                            </span>{" "}
+                                            {point.text}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </motion.div>
+
         </section>
     );
 };

@@ -97,46 +97,102 @@ const Index = () => {
       <Header />
 
       {/* ========== HERO SECTION ========== */}
-      <motion.section
-        initial={{ opacity: 0, y: 70 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        className="relative min-h-screen overflow-hidden bg-black pt-[72px]">
-        {/* Background */}
-        <div className="absolute inset-0">
-          <img
-            src={heroAbstract}
-            alt=""
-            className="absolute left-0 top-0 h-full w-full object-cover"
-          />
-          {/* <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/60 to-black" /> */}
-        </div>
+      {/* Laptop & Desktop View */}
+      <div className="hidden md:block">
+        <motion.section
+          initial={{ opacity: 0, y: 70 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="relative min-h-screen overflow-hidden bg-black pt-[72px]">
+          {/* Background */}
+          <div className="absolute inset-0">
+            <img
+              src={heroAbstract}
+              alt=""
+              className="absolute left-0 top-0 h-full w-full object-cover"
+            />
+            {/* <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/60 to-black" /> */}
+          </div>
 
-        {/* Content */}
-        <div className="relative min-h-screen flex items-center justify-center">
-          <div className="relative z-10 mx-auto max-w-[90%] px-6 text-center">
-            {/* Headline */}
-            <h1 className="mx-auto max-w-[900px] font-display text-[40px] md:text-[56px] font-bold leading-[1.1] tracking-tight text-white">
-              From architecture to deployment
-              <br />
-              <span className="inline-flex items-center gap-2">
-                <span className="text-white">—</span>
-                <span className="text-[#1fb6ff]">flawlessly executed.</span>
-              </span>
-            </h1>
+          {/* Content */}
+          <div className="relative min-h-screen flex items-center justify-center">
+            <div className="relative z-10 mx-auto max-w-[90%] px-6 text-center">
+              {/* Headline */}
+              <h1 className="mx-auto max-w-[900px] font-display text-[40px] md:text-[56px] font-bold leading-[1.1] tracking-tight text-white">
+                From architecture to deployment
+                <br />
+                <span className="inline-flex items-center gap-2">
+                  <span className="text-white">—</span>
+                  <span className="text-[#1fb6ff]">flawlessly executed.</span>
+                </span>
+              </h1>
 
-            {/* Description */}
-            <p className="mx-auto mt-6 max-w-[520px] text-[15px] leading-[1.7] text-white/60">
-              Full-service software development studio delivering web, mobile,
-              cloud, and custom solutions — from concept to scale.
-            </p>
+              {/* Description */}
+              <p className="mx-auto mt-6 max-w-[520px] text-[15px] leading-[1.7] text-white/60">
+                Full-service software development studio delivering web, mobile,
+                cloud, and custom solutions — from concept to scale.
+              </p>
 
-            {/* CTA */}
-            <div className="mt-10 flex justify-center">
-              <PressableButton />
+              {/* CTA */}
+              <div className="mt-10 flex justify-center">
+                <PressableButton />
+              </div>
             </div>
           </div>
-        </div>
-      </motion.section>
+        </motion.section>
+      </div>
+      {/* Mobile Hero */}
+      <div className="block md:hidden">
+        <motion.section
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="relative min-h-[100svh] overflow-hidden bg-black pt-20 w-full"
+        >
+          {/* Background */}
+          <div className="absolute inset-0">
+            <img
+              src={heroAbstract}
+              alt=""
+              className="h-full w-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-black/60" />
+          </div>
+
+          {/* Content */}
+          <div className="relative z-10 flex min-h-[100svh] items-center">
+            <div className="mx-auto max-w-[92%] text-left">
+
+              {/* Eyebrow */}
+              <span className="mb-4 inline-block text-[12px] tracking-widest text-[#1fb6ff] uppercase">
+                Software Development Studio
+              </span>
+
+              {/* Headline */}
+              <h1 className="font-display text-[32px] font-bold leading-tight text-white">
+                From architecture
+                <br />
+                to deployment —
+                <br />
+                <span className="text-[#1fb6ff]">
+                  flawlessly executed.
+                </span>
+              </h1>
+
+              {/* Description */}
+              <p className="mt-5 max-w-[320px] text-[14px] leading-relaxed text-white/70">
+                Full-service software development delivering web, mobile, cloud,
+                and custom solutions — from concept to scale.
+              </p>
+
+              {/* CTA */}
+              <div className="mt-8">
+                <PressableButton />
+              </div>
+
+            </div>
+          </div>
+        </motion.section>
+      </div>
 
       {/* ========== HERO LOOP ========== */}
       <HeroLoop />

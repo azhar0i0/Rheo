@@ -179,7 +179,7 @@ const StartProject = () => {
     <div className="min-h-screen bg-[#000000]">
 
       {/* Form Section */}
-      <section className="pt-24 pb-20">
+      <section className="pt-24 pb-20 hidden md:block">
         <div className="section-container">
           <div className="grid md:grid-cols-2 gap-12 items-start">
             {/* Form */}
@@ -345,6 +345,176 @@ const StartProject = () => {
           </div>
         </div>
       </section>
+      {/* Mobile Form Section */}
+      <section className="block md:hidden pt-20 pb-24">
+        <div className="mx-auto max-w-[92%]">
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            {!isSubmitted ? (
+              <>
+                {/* Back Button */}
+                <button
+                  type="button"
+                  onClick={() => navigate(-1)}
+                  className="mb-8 inline-flex items-center gap-2 text-sm text-white/60 hover:text-white transition"
+                >
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15 5L8 12L15 19"
+                      fill="none"
+                      stroke="white"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  Back
+                </button>
+
+                {/* Header */}
+                <div className="mb-12">
+                  <p className="text-[#1fb6ff] text-xs tracking-widest uppercase mb-3">
+                    Rheo Technologies
+                  </p>
+
+                  <h1 className="font-display text-3xl font-bold leading-tight text-white">
+                    Start your
+                    <br />
+                    <span className="text-[#1fb6ff]">Project</span>
+                  </h1>
+                </div>
+
+                {/* Form */}
+                <form onSubmit={handleSubmit} className="space-y-7">
+
+                  {/* Name */}
+                  <div>
+                    <label className="block text-xs text-white/70 mb-2">
+                      Your Name
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      placeholder="John Doe"
+                      className="w-full bg-transparent border-b border-white/20 pb-3 text-white placeholder:text-white/40 focus:outline-none focus:border-[#1fb6ff]"
+                    />
+                    {errors.name && (
+                      <p className="text-red-500 text-xs mt-2">{errors.name}</p>
+                    )}
+                  </div>
+
+                  {/* Email */}
+                  <div>
+                    <label className="block text-xs text-white/70 mb-2">
+                      Your Email
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="you@company.com"
+                      className="w-full bg-transparent border-b border-white/20 pb-3 text-white placeholder:text-white/40 focus:outline-none focus:border-[#1fb6ff]"
+                    />
+                    {errors.email && (
+                      <p className="text-red-500 text-xs mt-2">{errors.email}</p>
+                    )}
+                  </div>
+
+                  {/* Service Select */}
+                  <div className="relative">
+                    <label className="block text-xs text-white/70 mb-2">
+                      What you need from us?
+                    </label>
+
+                    <button
+                      type="button"
+                      onClick={() => setIsSelectOpen(!isSelectOpen)}
+                      className="w-full flex items-center justify-between border-b border-white/20 pb-3 text-left"
+                    >
+                      <span className={formData.service ? 'text-white' : 'text-white/40'}>
+                        {formData.service || 'Select a service'}
+                      </span>
+                      <ChevronDown
+                        className={`w-4 h-4 text-white/60 transition-transform ${isSelectOpen ? 'rotate-180' : ''
+                          }`}
+                      />
+                    </button>
+
+                    {errors.service && (
+                      <p className="text-red-500 text-xs mt-2">{errors.service}</p>
+                    )}
+
+                    {isSelectOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="absolute z-50 left-0 right-0 mt-2 bg-black border border-white/10 rounded-xl overflow-hidden"
+                      >
+                        {services.map((service) => (
+                          <button
+                            key={service}
+                            type="button"
+                            onClick={() => {
+                              setFormData(prev => ({ ...prev, service }));
+                              setIsSelectOpen(false);
+                            }}
+                            className="w-full px-4 py-3 text-left text-white/80 hover:bg-white/5 transition"
+                          >
+                            {service}
+                          </button>
+                        ))}
+                      </motion.div>
+                    )}
+                  </div>
+
+                  {/* Description */}
+                  <div>
+                    <label className="block text-xs text-white/70 mb-2">
+                      Project Description
+                    </label>
+                    <textarea
+                      name="description"
+                      value={formData.description}
+                      onChange={handleInputChange}
+                      placeholder="Briefly describe your project..."
+                      rows={4}
+                      className="w-full bg-transparent border border-white/20 rounded-xl p-3 text-white placeholder:text-white/40 focus:outline-none focus:border-[#1fb6ff] resize-none"
+                    />
+                    {errors.description && (
+                      <p className="text-red-500 text-xs mt-2">{errors.description}</p>
+                    )}
+                  </div>
+
+                  {/* Submit */}
+                  <button
+                    type="submit"
+                    className="mt-6 w-full rounded-full bg-[#1fb6ff] py-4 text-sm font-semibold text-black transition hover:bg-[#7fd4ff]"
+                  >
+                    Submit Project Query
+                  </button>
+
+                </form>
+              </>
+            ) : (
+              <SuccessState />
+            )}
+          </motion.div>
+
+        </div>
+      </section>
+
 
       {/* FAQ Section */}
       <section className="py-20 pb-48">
