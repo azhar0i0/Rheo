@@ -5,7 +5,6 @@ const TextScroll = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const text = "Rheo turns complex workflows into smooth, manageable steps—planning, coding, and deploying with minimal friction so developers can focus on creating instead of troubleshooting.";
   
-  // Splitting by characters for that granular "pro" look
   const characters = text.split("");
 
   const { scrollYProgress } = useScroll({
@@ -21,17 +20,18 @@ const TextScroll = () => {
         ref={containerRef} 
         style={{ 
           maxWidth: '90%', 
-          margin: '0 auto', 
-          padding: '12px',
+          margin: '0 auto',
         }}
+        className='md:p-4 sm:px-2 sm:py-0'
       >
-        <p style={{ 
-          fontSize: '2.5rem',
+        <p style={{
           lineHeight: '1.4', 
           color: '#666666',
           display: 'flex', 
           flexWrap: 'wrap',
-        }}>
+        }}
+        className=' sm:text-2xl md:text-6xl lg:text-4xl'
+        >
           {characters.map((char, i) => {
             const start = i / characters.length;
             const end = start + (1 / characters.length);
@@ -49,16 +49,16 @@ const TextScroll = () => {
 };
 
 const Character = ({ children, progress, range }: { children: string, progress: any, range: [number, number] }) => {
-  // We transform the specific scroll range to full white opacity
+  // specific scroll to full white opacity
   const opacity = useTransform(progress, range, [0, 1]);
 
   return (
     <span style={{ position: 'relative', display: 'inline-block' }}>
-      {/* The background (dim) letter */}
+      {/* dim letter */}
       <span style={{ position: 'absolute', opacity: 1 }}>
         {children === " " ? "\u00A0" : children}
       </span>
-      {/* The animated (bright) letter */}
+      {/* bright letter */}
       <motion.span style={{ opacity, color: '#fff', position: 'relative' }}>
         {children === " " ? "\u00A0" : children}
       </motion.span>

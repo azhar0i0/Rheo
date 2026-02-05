@@ -112,7 +112,7 @@ export default function DiscoverCards() {
   });
 
   return (
-    <main ref={container} className="relative bg-black pb-[10vh]">
+    <main ref={container} className="relative bg-black pb-[10vh] hidden md:block">
       <div className="pt-24">
         <h2 className="text-center text-4xl lg:text-6xl font-bold text-[#d9f3ff] sticky top-10 mb-[-5vh]">
           Discover Our Top Services.

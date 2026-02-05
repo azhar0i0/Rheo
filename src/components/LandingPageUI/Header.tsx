@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react"; // Install lucide-react for icons
+import { Menu, X } from "lucide-react";
 import logo from "@/assets/rheo-logo.png";
 
 const Header = () => {

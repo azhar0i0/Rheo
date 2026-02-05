@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 export default function OurWorks() {
   return (
-    <section className="bg-black text-white px-6 lg:px-24 py-32 mt-24 mx-auto" style={{width:'90%'}}>
+    <section className="bg-black text-white px-6 lg:px-24 md:py-32 mt-24 mx-auto" style={{width:'90%'}}>
       {/* Header Line */}
       <div className="flex items-center gap-4 mb-24">
         <span className="text-sm text-gray-400">⬤ ‎  Works </span>
@@ -73,7 +73,7 @@ function WorkRow({ title, subtitle, tech, focus }) {
         </p>
       </div>
 
-      {/* FULL-WIDTH DIVIDER (this is what you were missing) */}
+      {/* FULL-WIDTH DIVIDER */}
       <div className="relative h-px bg-gray-200 mt-24">
         <hr />
         {/* Circle */}
