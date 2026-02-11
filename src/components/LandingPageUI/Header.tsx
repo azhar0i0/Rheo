@@ -15,7 +15,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-[100] w-full">
       {/* Container with Glassmorphism */}
       <div className="relative h-20 w-full bg-black/70 backdrop-blur-xl border-b border-white/10">
-        <div className="max-w-7xl mx-auto h-full px-6 md:px-10 flex items-center justify-between">
+        <div className="max-w-[93%] mx-auto h-full px-6 md:px-10 flex items-center justify-between">
           
           {/* Logo */}
           <Link to="/" className="flex items-center hover:opacity-80 transition-opacity">
@@ -24,6 +24,7 @@ const Header = () => {
               alt="Rheo Technologies"
               className="w-10 h-10 md:w-12 md:h-12 object-contain"
             />
+            <h1 className="ml-2 text-3xl md:text-5xl font-bold text-white">heo</h1>
           </Link>
 
           {/* Desktop Navigation */}

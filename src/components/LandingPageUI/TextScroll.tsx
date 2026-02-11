@@ -53,7 +53,7 @@ const Character = ({ children, progress, range }: { children: string, progress: 
   const opacity = useTransform(progress, range, [0, 1]);
 
   return (
-    <span style={{ position: 'relative', display: 'inline-block' }}>
+    <span style={{ position: 'relative', display: 'inline-block' }} className=''>
       {/* dim letter */}
       <span style={{ position: 'absolute', opacity: 1 }}>
         {children === " " ? "\u00A0" : children}
