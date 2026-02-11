@@ -11,13 +11,16 @@ const fadeInUp = {
   visible: { opacity: 1, y: 0 }
 };
 
+// 1. Define initial state to make resetting easy
+const initialFormState = {
+  name: '',
+  email: '',
+  service: '',
+  description: ''
+};
+
 const StartProject = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    service: '',
-    description: ''
-  });
+  const [formData, setFormData] = useState(initialFormState);
 
   const [errors, setErrors] = useState<{
     name?: string;
@@ -102,22 +105,51 @@ const StartProject = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  // 1. Add this state at the top
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // 2. Update your handleSubmit
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!validateForm()) return;
 
-    // submit logic here (API call etc.)
-    setIsSubmitted(true);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/rheotechnologies1@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          service: formData.service,
+          message: formData.description,
+          _subject: `New Project Inquiry: ${formData.service}`,
+          _template: "table"
+        })
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        // 2. Clear the form data upon success
+        setFormData(initialFormState);
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Form submission error", error);
+      alert("There was an error sending your message.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
 
-  // 3. The JSX for the Confirmation Section
-  // Wrap your form in { !isSubmitted ? ( <form> ) : ( <SuccessState /> ) }
   const SuccessState = () => (
     <motion.div
       initial="hidden"
@@ -125,7 +157,6 @@ const StartProject = () => {
       variants={fadeInUp}
       className="flex flex-col items-start justify-center py-12"
     >
-      {/* Back Button */}
       <button
         type="button"
         onClick={() => navigate(-1)}
@@ -147,7 +178,6 @@ const StartProject = () => {
         }}
         className="mb-10 p-5 rounded-3xl bg-primary/5 border border-primary/20 relative group"
       >
-        {/* Orbital Glow Effect */}
         <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full opacity-50 group-hover:opacity-100 transition-opacity" />
 
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-primary relative z-10" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -178,7 +208,7 @@ const StartProject = () => {
   return (
     <div className="min-h-screen bg-[#000000]">
 
-      {/* Form Section */}
+      {/* Desktop Form Section */}
       <section className="pt-24 pb-20 hidden md:block">
         <div className="section-container">
           <div className="grid md:grid-cols-2 gap-12 items-start">
@@ -189,10 +219,8 @@ const StartProject = () => {
               variants={fadeInUp}
               inherit={false}
             >
-              {/* Conditional Rendering Logic */}
               {!isSubmitted ? (
                 <>
-                  {/* Back Button */}
                   <button
                     type="button"
                     onClick={() => navigate(-1)}
@@ -215,7 +243,6 @@ const StartProject = () => {
                     </svg>
                     Back
                   </button>
-                  {/* heading of form */}
                   <div className="mb-16">
                     <p className="text-primary text-sm">Rheo Technologies</p>
                     <h1 className="font-display text-[67px] font-bold">
@@ -223,7 +250,7 @@ const StartProject = () => {
                       <span className="text-primary">Project</span>
                     </h1>
                   </div>
-                  {/* Contact form  */}
+
                   <form onSubmit={handleSubmit} className="space-y-6">
                     {/* Name */}
                     <div>
@@ -314,9 +341,11 @@ const StartProject = () => {
                     {/* Submit Button */}
                     <button
                       type="submit"
-                      className="btn-primary w-full px-[214px] md:w-auto text-white hover:bg-[#87C296] hover:text-black transition-all"
+                      disabled={isSubmitting}
+                      // 3. UPDATED CLASS: Removed md:w-auto, added md:min-w to prevent shrink
+                      className="btn-primary w-full md:w-auto md:min-w-[200px] text-white hover:bg-[#87C296] hover:text-black transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      Submit Project Query
+                      {isSubmitting ? 'Sending...' : 'Submit Project Query'}
                     </button>
                   </form>
                 </>
@@ -356,7 +385,6 @@ const StartProject = () => {
           >
             {!isSubmitted ? (
               <>
-                {/* Back Button */}
                 <button
                   type="button"
                   onClick={() => navigate(-1)}
@@ -380,7 +408,6 @@ const StartProject = () => {
                   Back
                 </button>
 
-                {/* Header */}
                 <div className="mb-12">
                   <p className="text-[#1fb6ff] text-xs tracking-widest uppercase mb-3">
                     Rheo Technologies
@@ -393,7 +420,6 @@ const StartProject = () => {
                   </h1>
                 </div>
 
-                {/* Form */}
                 <form onSubmit={handleSubmit} className="space-y-7">
 
                   {/* Name */}
@@ -500,11 +526,11 @@ const StartProject = () => {
                   {/* Submit */}
                   <button
                     type="submit"
-                    className="mt-6 w-full rounded-full bg-[#1fb6ff] py-4 text-sm font-semibold text-black transition hover:bg-[#7fd4ff]"
+                    disabled={isSubmitting}
+                    className="mt-6 w-full rounded-full bg-[#1fb6ff] py-4 text-sm font-semibold text-black transition hover:bg-[#7fd4ff] disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Submit Project Query
+                    {isSubmitting ? 'Sending...' : 'Submit Project Query'}
                   </button>
-
                 </form>
               </>
             ) : (

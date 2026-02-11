@@ -38,7 +38,7 @@ export default function AboutServicesSection() {
     const current = tabs[activeTab];
 
     return (
-        <section className="bg-black text-white py-[120px] mt-24">
+        <section className="bg-black text-white mb-36 mt-24">
             <motion.div
                 initial={{ opacity: 0, x: -60 }}
                 whileInView={{ opacity: 1, x: 0 }}

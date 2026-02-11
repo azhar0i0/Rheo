@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const TextScroll = () => {
@@ -30,7 +30,7 @@ const TextScroll = () => {
           display: 'flex', 
           flexWrap: 'wrap',
         }}
-        className=' sm:text-2xl md:text-6xl lg:text-4xl'
+        className=' sm:text-2xl md:text-6xl lg:text-4xl break-words'
         >
           {characters.map((char, i) => {
             const start = i / characters.length;
